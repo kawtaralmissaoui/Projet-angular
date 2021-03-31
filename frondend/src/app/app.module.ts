@@ -23,6 +23,10 @@ import { CreateLocPhyComponent } from './create-loc-phy/create-loc-phy.component
 import { CreateLocMorComponent } from './create-loc-mor/create-loc-mor.component';
 import { CreateProprietaireComponent } from './create-proprietaire/create-proprietaire.component';
 import { CreateSocieteComponent } from './create-societe/create-societe.component';
+import { AuthInterceptor } from './Services/auth.interceptor';
+import { CreateLocationComponent } from './create-location/create-location.component';
+import { CreateChargeComponent } from './create-charge/create-charge.component';
+import { CreatePaiementComponent } from './create-paiement/create-paiement.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +47,9 @@ import { CreateSocieteComponent } from './create-societe/create-societe.componen
     CreateLocMorComponent,
     CreateProprietaireComponent,
     CreateSocieteComponent,
+    CreateLocationComponent,
+    CreateChargeComponent,
+    CreatePaiementComponent,
   ],
   imports: [
     BrowserModule,

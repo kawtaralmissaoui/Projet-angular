@@ -30,16 +30,17 @@
             <div class="card-header bg-transparent">
               <h5 class="mb-0">Ajouter un nouveau locataire morale</h5>
             </div>
+            <form method="POST" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
               <div class="card-body">
               <div class="text-center"><h5 class="title"><b>Identification du Société</b></h5></div>
                 <div class="row row1">
                     <div class="col">
-                    <label for="Civilité" class="form-label"><b>Nom Société</b></label>
-                    <input type="text" class="form-control" placeholder="Nom Société" aria-label="Civilité" id="Civilité">
+                    <label for="nom_societe" class="form-label"><b>Nom Société</b></label>
+                    <input type="text" class="form-control" placeholder="Nom Société" aria-label="nom_societe" id="nom_societe" name="nom_societe" [(ngModel)]="user.nom_societe">
                   </div>
                   <div class="col">
-                    <label for="Nom" class="form-label"><b>Nom Responsable</b></label>
-                    <input type="text" class="form-control" placeholder="Nom Responsable" aria-label="Nom" id="Nom">
+                    <label for="nom_responsable" class="form-label"><b>Nom Responsable</b></label>
+                    <input type="text" class="form-control" placeholder="Nom Responsable" aria-label="nom_responsable" id="nom_responsable" name="nom_responsable" [(ngModel)]="user.nom_responsable">
                   </div>
                   <div class="col">
                     <label for="Prenom" class="form-label"><b>Prenom Responsable</b></label>
@@ -50,40 +51,40 @@
                 <div class="row row1">
                   <div class="col">
                     <label for="Adresse" class="form-label"><b>Adresse</b></label>
-                    <input type="text" class="form-control" placeholder="Adresse" aria-label="Adresse" id="Adresse">
+                    <input type="text" class="form-control" placeholder="Adresse" aria-label="Adresse" id="Adresse" name="adresse" [(ngModel)]="user.adresse">
                   </div>
                   <div class="col">
                     <label for="Telephone" class="form-label"><b>Telephone</b></label>
-                    <input type="text" class="form-control" placeholder="Telephone" aria-label="Telephone" id="Telephone">
+                    <input type="text" class="form-control" placeholder="Telephone" aria-label="Telephone" id="Telephone" name="telephone" [(ngModel)]="user.telephone">
                   </div>
                   <div class="col">
                     <label for="CIN" class="form-label"><b>N° CIN</b></label>
-                   <input type="text" class="form-control" placeholder="N° CIN" aria-label="CIN" id="CIN">
+                   <input type="text" class="form-control" placeholder="N° CIN" aria-label="CIN" id="CIN" name="CIN" [(ngModel)]="user.CIN">
                  </div>
                 </div>
                 <br>
                 <div class="row row1">
                   <div class="col">
                     <label for="Statut" class="form-label"><b>Statut Société</b></label>
-                    <input type="text" class="form-control" placeholder="Statut Société" aria-label="Statut" id="Statut">
+                    <input type="text" class="form-control" placeholder="Statut Société" aria-label="Statut" id="Statut" name="statut_societe" [(ngModel)]="user.statut_societe">
                   </div>
                   <div class="col">
                     <label for="Patente" class="form-label"><b>Patente</b></label>
-                    <input type="text" class="form-control" placeholder="Patente" aria-label="Patente" id="Patente">
+                    <input type="text" class="form-control" placeholder="Patente" aria-label="Patente" id="Patente" name="patente" [(ngModel)]="user.patente">
                   </div>
                 </div>
                 <br>
                 <div class="text-center"><h5 class="title"><b>Création du compte</b></h5></div>
                 <div class="row row1">
                   <div class="col">
-                    <input type="hidden" class="form-control" value="locataire"  aria-label="role">
+                    <input type="hidden" class="form-control" value="locataire"  aria-label="role" name="role" aria-label="role" [(ngModel)]="user.role">
                     <label for="Email" class="form-label"><b>Email</b></label>
-                    <input type="Email" class="form-control" placeholder="Email" aria-label="Email" id="Email">
+                    <input type="Email" class="form-control" placeholder="Email" aria-label="Email" id="Email" name="email" [(ngModel)]="user.email">
                   </div>
                   <div class="col">
                     <div class="mb-3">
                       <label for="password" class="form-label"><b>Mot de passe</b></label>
-                      <input class="form-control" type="password" id="password" placeholder="Mot de passe">
+                      <input class="form-control" type="password" id="password" placeholder="Mot de passe" name="password" [(ngModel)]="user.password">
                     </div>
                   </div>
                   <div class="col">
@@ -111,12 +112,12 @@
                </div>
                <div class="pull-right">
                 <div class="buttons">
-                <button type="button" class="btn btn-primary">Annuler</button>
-                <button type="button" class="btn btn-success">Enregistrer</button>
+                <button type="button" class="btn btn-primary" style="background-color: #5e72e4 !important;">Annuler</button>
+                <button type="submit" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
                 </div>
               </div>
             </div>
-
+          </form>
             </div>
 
     </div>
