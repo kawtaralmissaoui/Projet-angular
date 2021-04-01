@@ -27,6 +27,8 @@ import { AuthInterceptor } from './Services/auth.interceptor';
 import { CreateLocationComponent } from './create-location/create-location.component';
 import { CreateChargeComponent } from './create-charge/create-charge.component';
 import { CreatePaiementComponent } from './create-paiement/create-paiement.component';
+import { BienComponent } from './bien/bien.component';
+import { CreateBienComponent } from './create-bien/create-bien.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,8 @@ import { CreatePaiementComponent } from './create-paiement/create-paiement.compo
     CreateLocationComponent,
     CreateChargeComponent,
     CreatePaiementComponent,
+    BienComponent,
+    CreateBienComponent,
   ],
   imports: [
     BrowserModule,

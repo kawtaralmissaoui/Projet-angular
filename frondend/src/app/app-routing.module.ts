@@ -17,6 +17,8 @@ import { CreateSocieteComponent } from './create-societe/create-societe.componen
 import { CreateLocationComponent } from './create-location/create-location.component';
 import { CreateChargeComponent } from './create-charge/create-charge.component';
 import { CreatePaiementComponent } from './create-paiement/create-paiement.component';
+import { BienComponent } from './bien/bien.component';
+import { CreateBienComponent } from './create-bien/create-bien.component';
 const routes: Routes = [
   { path:'' ,
   component: HomeComponent },
@@ -32,6 +34,10 @@ const routes: Routes = [
   {
     path:'location',
     component:LocationComponent
+  },
+  {
+    path:'bien',
+    component:BienComponent
   },
   {
     path:'paiement',
@@ -80,6 +86,10 @@ const routes: Routes = [
   {
     path:'create-paiement',
     component:CreatePaiementComponent
+  },
+  {
+    path:'create-bien',
+    component:CreateBienComponent
   },
  /*]
 },*/

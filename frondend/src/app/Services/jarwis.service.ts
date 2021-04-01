@@ -34,6 +34,8 @@ addlocatairemor(data: any){
  addpaiement(data: any){
   return  this.http.post(`${this.baseUrl}/addPaiement`,data)
  }
-
+ addbien(data: any){
+  return  this.http.post(`${this.baseUrl}/AddBien`,data)
+ }
 }
 
