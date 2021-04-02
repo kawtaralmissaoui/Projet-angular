@@ -12,6 +12,7 @@ export class User
     password:any;
     role:any;
     nom_responsable:any;
+    prenom_responsable:any;
     nom_societe:any;
     patente:any;
     statut_societe:any;

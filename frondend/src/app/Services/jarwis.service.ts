@@ -37,5 +37,36 @@ addlocatairemor(data: any){
  addbien(data: any){
   return  this.http.post(`${this.baseUrl}/AddBien`,data)
  }
+ getLocPhyActif(){
+  return  this.http.get(`${this.baseUrl}/getLocPhyActif`)
+ }
+ getLocPhyArchiv(){
+  return  this.http.get(`${this.baseUrl}/getLocPhyArchive`)
+ }
+ getProPhyActif(){
+  return  this.http.get(`${this.baseUrl}/getProPhyActif`)
+ }
+ getProPhyArchiv(){
+  return  this.http.get(`${this.baseUrl}/getProPhyArchive`)
+ }
+ getbienActif(){
+  return  this.http.get(`${this.baseUrl}/getBienActif`)
+ }
+ getbienArchiv(){
+  return  this.http.get(`${this.baseUrl}/getBienArchive`)
+ }
+ getlocationActif(){
+  return  this.http.get(`${this.baseUrl}/getLocationActif`)
+ }
+ getlocationArchiv(){
+  return  this.http.get(`${this.baseUrl}/getLocationArchive`)
+ }
+ getchargeActif(){
+  return  this.http.get(`${this.baseUrl}/getChargeActif`)
+ }
+ getchargeArchiv(){
+  return  this.http.get(`${this.baseUrl}/getChargeArchive`)
+ }
+
 }
 

@@ -39,8 +39,8 @@
                         <div class="row">
                           <div class="col-lg-2 text-left"><span class="card-title" style="color: #5e72e4;"><b>Filtrer</b></span><!--span style="color: grey"> Utilisez les options pour filtrer</span--></div>
                           <div class=" col-10 text-right">
-                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white">Actifs </button>
-                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white">Archive </button>
+                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white" (click)="listActif()">Actifs </button>
+                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white" (click)="listArchiv()">Archive </button>
                             <button type="button"  class="btn btn-secondary" style="background-color: #5e72e4; color: white" routerLink="/create-charge">Nouveau </button>
                           </div>
                         </div>
@@ -75,43 +75,30 @@
                          <div class="input-group-append" style="width: 50px;"><button class="btn btn-primary" style="background-color: #5e72e4 !important;"><i class="fas fa-search"></i></button></div>
                       </div>
                     </div>
-                  <div class="table-responsive">
-        <table class="table">
-<thead class="thead-light">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">First</th>
-    <th scope="col">Action</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <th>l</th>
-    <td><a style="background-color: #5e72e4 !important;" href="fiche1.html" class="btn btn-primary">details</a>
-</td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-     <th>l</th>
-    <td><a style="background-color: #5e72e4 !important;" href="fiche1.html" class="btn btn-primary">details</a></td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-     <th>l</th>
-    <td><a style="background-color: #5e72e4 !important;" href="fiche1.html" class="btn btn-primary">details</a></td>
-  </tr>
-</tbody>
-</table>
-      </div>
+                    <div class="table-responsive" *ngIf="table">
+                      <table class="table " >
+                      <thead class="thead-light">
+                        <tr >
+                          <th scope="col">Date Paiement</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Reparation</th>
+                          <th scope="col">Personnel</th>
+                          <th scope="col">Nombre relance</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <tr *ngFor="let location of locations">
+                          <td>{{charge.date_paiement}}</td>
+                          <td>{{charge.type}}</td>
+                          <td>{{charge.reparation}}</td>
+                          <td>{{charge.personnel}}</td>
+                          <td>{{charge.nbt_relance}}</td>
+                          <td><a style="background-color: #5e72e4 !important;"  class="btn btn-primary" >Détails</a>
+                      </td>
+                        </tr>
+                      </tbody>
+                      </table>
   </div>
               </div>
             </div>

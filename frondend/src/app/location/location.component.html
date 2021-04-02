@@ -11,8 +11,8 @@
           <div class="col-lg-6 col-7">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" href="dashboard.html"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" href="#">Location</a></li>
+                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" ><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" >Location</a></li>
               </ol>
             </nav>
           </div>
@@ -36,8 +36,8 @@
                         <div class="row">
                           <div class="col-lg-2 text-left"><span class="card-title" style="color: #5e72e4"><b>Filtrer</b></span><!--span style="color: grey"> Utilisez les options pour filtrer</span--></div>
                           <div class=" col-10 text-right">
-                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white">Actifs </button>
-                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white">Archive </button>
+                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white" (click)="listActif()">Actifs </button>
+                            <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white" (click)="listArchiv()">Archive </button>
                             <button type="button"  class="btn btn-secondary" style="background-color: #5e72e4; color: white" routerLink="/create-location">Nouveau </button>
                           </div>
                         </div>
@@ -61,47 +61,29 @@
                          <div class="input-group-append" style="width: 50px;"><button class="btn btn-primary" style="background-color: #5e72e4 !important;"><i class="fas fa-search"></i></button></div>
                       </div>
                     </div>
-<div class="table-responsive">
-<table class="table">
-<thead class="thead-light">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">Action</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <th>l</th>
-    <th >Last</th>
-    <td><a style="background-color: #5e72e4 !important;" class="btn btn-primary" >Détails</a>
-</td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-     <th>l</th>
-    <th >Last</th>
-    <td><a style="background-color: #5e72e4 !important;" class="btn btn-primary">Détails</a></td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-     <th>l</th>
-    <th >Last</th>
-    <td><a style="background-color: #5e72e4 !important;" href="fiche3.html" class="btn btn-primary">Détails</a></td>
-  </tr>
-</tbody>
-</table>
-      </div>
+                    <div class="table-responsive" *ngIf="table">
+                      <table class="table " >
+                      <thead class="thead-light">
+                        <tr >
+                          <th scope="col">Date entrée</th>
+                          <th scope="col">Date sortie</th>
+                          <th scope="col">Montant</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <tr *ngFor="let location of locations">
+                          <td>{{location.date_entree}}</td>
+                          <td>{{location.date_sortie}}</td>
+                          <td>{{location.montant}}</td>
+                          <td>{{location.type}}</td>
+                          <td><a style="background-color: #5e72e4 !important;"  class="btn btn-primary" >Détails</a>
+                      </td>
+                        </tr>
+                      </tbody>
+                      </table>
+        </div>
   </div>
               </div>
             </div>

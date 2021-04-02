@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../Model/user';
+import { JarwisService } from '../Services/jarwis.service';
 @Component({
   selector: 'app-societe',
   templateUrl: './societe.component.html',
   styleUrls: ['./societe.component.css']
 })
 export class SocieteComponent implements OnInit {
-
-  constructor() { }
+ table:boolean=false;
+  user = new User();
+  users=[] as any ;
+  constructor(private Jarwis:JarwisService) { }
 
   ngOnInit(): void {
   }
@@ -15,4 +20,17 @@ export class SocieteComponent implements OnInit {
     var element = document.getElementById("CloseButton") as any;
     element.click();
   }
+  listActif(){
+    this.Jarwis.getProPhyActif().subscribe(
+      data => {console.log(data);  this.users=Object.values(data);}, error => console.log(error)
+      );
+      this.table=true;
+  }
+  listArchiv(){
+    this.Jarwis.getProPhyArchiv().subscribe(
+      data => {console.log(data);  this.users=Object.values(data);}, error => console.log(error)
+      );
+      this.table=true;
+  }
+
 }
