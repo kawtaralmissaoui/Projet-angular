@@ -23,11 +23,6 @@ export class ChargesComponent implements OnInit {
       );
       this.table=true;
   }
-  listArchiv(){
-    this.Jarwis.getchargeArchiv().subscribe(
-      data => {console.log(data);  this.charges=Object.values(data);}, error => console.log(error)
-      );
-      this.table=true;
-  }
+
 
 }

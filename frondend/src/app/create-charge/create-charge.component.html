@@ -43,34 +43,23 @@
         <input type="date" class="form-control" aria-label="date_paiement" id="date_paiement" name="date_paiement" [(ngModel)]="charge.date_paiement">
       </div>
       <div class="col">
-        <label for="type" class="form-label"><b>Type</b></label>
-        <input type="text" class="form-control"  aria-label="type" id="type" name="type" [(ngModel)]="charge.type">
+        <label for="nbt_relance" class="form-label"><b>Nombre relance</b></label>
+        <input type="text" class="form-control" placeholder="Nombre relance" aria-label="nbt_relance" id="nbt_relance" name="nbt_relance" [(ngModel)]="charge.nbt_relance">
       </div>
     </div>
     <br>
     <div class="row row1">
       <div class="col">
       <label for="reparation" class="form-label"><b>Reparation</b></label>
-      <input type="text" class="form-control" aria-label="reparation" id="reparation" name="reparation" [(ngModel)]="charge.reparation">
+      <input type="text" class="form-control" placeholder="Montant de reparation" aria-label="reparation" id="reparation" name="reparation" [(ngModel)]="charge.reparation">
     </div>
     <div class="col">
       <label for="personnel" class="form-label"><b>Personnel </b></label>
-      <input type="text" class="form-control" aria-label="personnel" id="personnel" name="personnel" [(ngModel)]="charge.personnel">
+      <input type="text" class="form-control" placeholder="Montant de personnel" aria-label="personnel" id="personnel" name="personnel" [(ngModel)]="charge.personnel">
     </div>
   </div>
   <br>
-    <div class="row row1">
-      <div class="col">
-        <label for="nbt_relance" class="form-label"><b>Nombre relance</b></label>
-        <input type="text" class="form-control" placeholder="Nombre relance" aria-label="nbt_relance" id="nbt_relance" name="nbt_relance" [(ngModel)]="charge.nbt_relance">
-      </div>
-      <div class="col">
-        <label for="location_id" class="form-label"><b>Location</b></label>
-        <input type="text" class="form-control" placeholder="ID Location" aria-label="location_id" id="location_id" name="location_id" [(ngModel)]="charge.location_id">
 
-      </div>
-    </div>
-  <br>
     <!--div class="text-center"><h5 class="title"><b>Documents justificatifs</b></h5></div>
     <span (click)="addForm()" class="btn btn-secondary">+</span>
    <div class="row row1 " *ngFor="let obj of dataarray">
@@ -90,7 +79,7 @@
    <div class="pull-right">
     <div class="buttons">
     <button type="button" class="btn btn-primary" style="background-color: #5e72e4 !important;">Annuler</button>
-    <button type="submit" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
+    <button type="submit" (click)="alert()" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
     </div>
   </div>
   </div>

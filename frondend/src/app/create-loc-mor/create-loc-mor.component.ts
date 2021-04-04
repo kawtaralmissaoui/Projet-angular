@@ -4,6 +4,7 @@ import { User } from '../Model/user';
 import { Router } from '@angular/router';
 import { JarwisService } from '../Services/jarwis.service';
 import { TokenService } from '../Services/token.service';
+import Swal from 'sweetalert2' ;
 @Component({
   selector: 'app-create-loc-mor',
   templateUrl: './create-loc-mor.component.html',
@@ -30,6 +31,35 @@ export class CreateLocMorComponent implements OnInit {
       data => console.log(data), error => console.log(error)
       );
     this.user = new User();
+   }
+
+   opensweetalert(){
+    Swal.fire({
+      title: 'Succés',
+      text: 'Ajout avec succes!',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
+
+   erreur(){
+    Swal.fire({
+      title: 'Ereur',
+      text: 'Erreur!',
+      icon: 'warning',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
+
+  alert(){
+     if(Object.values(this.user).length!=0)
+      this.opensweetalert();
+    else
+    this.erreur();
    }
 
 }

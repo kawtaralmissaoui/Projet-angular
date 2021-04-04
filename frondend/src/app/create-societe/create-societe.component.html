@@ -41,12 +41,12 @@
                 <input type="text" class="form-control" placeholder="Nom Société" aria-label="nom_societe" id="nom_societe" name="nom_societe" [(ngModel)]="user.nom_societe">
             </div>
             <div class="col">
-              <label for="nom_responsable" class="form-label"><b>Nom Responsable</b></label>
-                    <input type="text" class="form-control" placeholder="Nom Responsable" aria-label="nom_responsable" id="nom_responsable" name="nom_responsable" [(ngModel)]="user.nom_responsable">
+              <label for="nom" class="form-label"><b>Nom Responsable</b></label>
+                    <input type="text" class="form-control" placeholder="Nom Responsable" aria-label="nom" id="nom" name="nom" [(ngModel)]="user.nom">
             </div>
             <div class="col">
-              <label for="prenom-responsable" class="form-label"><b>Prenom Responsable</b></label>
-              <input type="text" class="form-control" placeholder="Prenom Responsable" aria-label="prenom_responsable" id="prenom_responsable" name="prenom_responsable" [(ngModel)]="user.prenom_responsable">
+              <label for="prenom" class="form-label"><b>Prenom Responsable</b></label>
+              <input type="text" class="form-control" placeholder="Prenom Responsable" aria-label="prenom" id="prenom" name="prenom" [(ngModel)]="user.prenom">
             </div>
           </div>
           <br>
@@ -115,7 +115,7 @@
          <div class="pull-right">
           <div class="buttons">
           <button type="button" class="btn btn-primary" style="background-color: #5e72e4 !important;">Annuler</button>
-          <button type="submit" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
+          <button type="submit" (click)="alert()" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
           </div>
         </div>
       </div>

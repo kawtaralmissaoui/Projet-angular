@@ -12,6 +12,8 @@ export class SocieteComponent implements OnInit {
  table:boolean=false;
   user = new User();
   users=[] as any ;
+  imagepath:any='http://127.0.0.1:8000/github/back/backend-gesimmo/public/img/';
+
   constructor(private Jarwis:JarwisService) { }
 
   ngOnInit(): void {

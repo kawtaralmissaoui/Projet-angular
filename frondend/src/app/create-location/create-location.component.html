@@ -51,11 +51,17 @@
     <div class="row row1">
       <div class="col">
       <label for="user_id" class="form-label"><b>Locataire</b></label>
-      <input type="text" class="form-control" aria-label="user_id" id="user_id" name="user_id" [(ngModel)]="location.user_id">
+      <select class="form-control" name="user_id" [(ngModel)]="location.user_id">
+        <option>Locataire</option>
+        <option  *ngFor="let user of users" value="{{ user.id }}">{{ user.nom }}-{{ user.prenom }}</option>
+      </select>
     </div>
     <div class="col">
       <label for="bien_id" class="form-label"><b>Bien </b></label>
-      <input type="text" class="form-control" aria-label="bien_id" id="bien_id" name="bien_id" [(ngModel)]="location.bien_id">
+      <select class="form-control" name="bien_id" [(ngModel)]="location.bien_id">
+        <option>Bien</option>
+        <option  *ngFor="let bien of biens" value="{{ bien.id }}">{{ bien.identifiant }}</option>
+      </select>
     </div>
   </div>
   <br>
@@ -70,12 +76,22 @@
           <option selected>Type</option>
           <option value="Personnel">Personnel</option>
           <option value="Professionnel">Professionnel</option>
-
         </select>
       </div>
     </div>
   <br>
-    <!--div class="text-center"><h5 class="title"><b>Documents justificatifs</b></h5></div>
+  <div class="row row1">
+    <div class="col">
+      <label for="identifiant" class="form-label"><b>Identifiant(Obligatoire et unique)</b></label>
+      <input type="text" class="form-control" placeholder="Identifiant(Obligatoire et unique)" aria-label="identifiant" id="identifiant" name="identifiant" [(ngModel)]="location.identifiant">
+    </div>
+    <div class="col">
+      <label for="duree" class="form-label"><b>Duree (Nombre de mois)</b></label>
+      <input type="text" class="form-control" placeholder="Duree (Nombre de mois)" aria-label="duree" id="duree" name="duree" [(ngModel)]="location.duree">
+    </div>
+  </div>
+<br>
+  <!--div class="text-center"><h5 class="title"><b>Documents justificatifs</b></h5></div>
     <span (click)="addForm()" class="btn btn-secondary">+</span>
    <div class="row row1 " *ngFor="let obj of dataarray">
     <div class="col">
@@ -94,7 +110,7 @@
    <div class="pull-right">
     <div class="buttons">
     <button type="button" class="btn btn-primary" style="background-color: #5e72e4 !important;">Annuler</button>
-    <button type="submit" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
+    <button type="submit" (click)="alert()" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
     </div>
   </div>
   </div>

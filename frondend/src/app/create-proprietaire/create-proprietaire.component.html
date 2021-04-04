@@ -33,8 +33,7 @@
           <h5 class="mb-0">Ajouter un nouveau proprietaire</h5>
         </div>
 
-          <!--button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button-->
-          <form method="POST" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+<form method="POST" #f="ngForm" (ngSubmit)="onSubmitform(f)"  enctype="multipart/form-data">
     <div class="card-body">
       <div class="text-center"><h5 class="title"><b>Identification du proprietaire</b></h5></div>
     <div class="row row1">
@@ -86,12 +85,14 @@
           <input class="form-control" type="password" id="password" placeholder="Mot de passe" name="password" [(ngModel)]="user.password">
         </div>
       </div>
+
       <div class="col">
         <div class="mb-3">
           <label for="Image" class="form-label"><b>Image</b></label>
-          <input class="form-control" type="file" id="Image">
+          <input class="form-control" type="file" (change)="fileEvent($event)" id="Image" name="image" [(ngModel)]="user.image">
         </div>
       </div>
+
     </div>
     <div class="text-center"><h5 class="title"><b>Documents justificatifs</b></h5></div>
     <span (click)="addForm()" class="btn btn-secondary">+</span>
@@ -112,11 +113,12 @@
    <div class="pull-right">
     <div class="buttons">
     <button type="button" class="btn btn-primary" style="background-color: #5e72e4 !important;">Annuler</button>
-    <button type="submit" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
+    <button type="submit" (click)="alert()" class="btn btn-success" style="background-color: #5e72e4 !important;">Enregistrer</button>
     </div>
   </div>
  </div>
  </form>
+
 </div>
 </div>
 </div>

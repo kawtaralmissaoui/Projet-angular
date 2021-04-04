@@ -69,6 +69,7 @@
   <table class="table " >
     <thead class="thead-light">
       <tr >
+        <th scope="col">Image</th>
         <th scope="col">Nom</th>
         <th scope="col">Prenom</th>
         <th scope="col">Societe</th>
@@ -80,7 +81,8 @@
     </thead>
     <tbody >
       <tr  *ngFor="let user of users">
-        <td >{{user.nom}}</td>
+        <td><img src="{{user.image}}"></td>
+        <td>{{user.nom}}</td>
         <td>{{user.prenom}}</td>
         <td>{{user.nom_societe}}</td>
         <td>{{user.email}}</td>
