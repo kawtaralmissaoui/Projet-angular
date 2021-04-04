@@ -47,18 +47,21 @@
         <input type="text" class="form-control" placeholder="Adresse" aria-label="adresse" id="adresse" name="adresse" [(ngModel)]="bien.adresse">
       </div>
       <div class="col">
+        <label for="code_postal" class="form-label"><b>Code Postale</b></label>
+        <input type="text" class="form-control" placeholder="Code Postale" aria-label="code_postal" id="code_postal" name="code_postal" [(ngModel)]="bien.code_postal">
+      </div>
+      <div class="col">
         <label for="surface" class="form-label"><b>Surface</b></label>
         <input type="text" class="form-control"  aria-label="surface" id="surface" placeholder="Surface" name="surface" [(ngModel)]="bien.surface">
       </div>
-      <div class="col">
+      <!--div class="col">
         <label for="statut" class="form-label"><b>Statut</b></label>
         <select class="form-control" id="statut" name="statut" [(ngModel)]="bien.statut">
           <option value=" ">Type</option>
           <option value="Occupé">Occupé</option>
           <option value="Libre">Libre</option>
         </select>
-
-      </div>
+      </div-->
     </div>
     <br>
     <div class="row row1">
@@ -119,12 +122,8 @@
         <option value="Parking">Parking</option>
         <option value="Studio">Studio</option>
       </select>
+    </div>
 
-    </div>
-    <div class="col">
-      <label for="code_postal" class="form-label"><b>Code Postale</b></label>
-      <input type="text" class="form-control" placeholder="Code Postale" aria-label="code_postal" id="code_postal" name="code_postal" [(ngModel)]="bien.code_postal">
-    </div>
     <div class="col">
       <label for="identifiant" class="form-label"><b>Identifiant (Obligatoire et unique)</b></label>
       <input type="text" class="form-control" placeholder="Identifiant (Obligatoire et unique)" aria-label="identifiant" id="identifiant" name="identifiant" [(ngModel)]="bien.identifiant">

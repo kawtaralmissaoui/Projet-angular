@@ -67,6 +67,18 @@ addlocatairemor(data: any){
  getchargeArchiv(){
   return  this.http.get(`${this.baseUrl}/getChargeArchive`)
  }
+ getlocataire(){
+  return  this.http.get(`${this.baseUrl}/counlocataire`)
+ }
+ getproprietaire(){
+  return  this.http.get(`${this.baseUrl}/countproprietaire`)
+ }
+ getlocation(){
+  return  this.http.get(`${this.baseUrl}/countlocation`)
+ }
+ getbien(){
+  return  this.http.get(`${this.baseUrl}/countbien`)
+ }
 
 }
 
