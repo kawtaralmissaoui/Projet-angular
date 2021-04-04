@@ -20,20 +20,10 @@ export class DashboardComponent implements OnInit {
   z:any;
   a:any;
   ngOnInit(): void {
-    this.listlocataire();
     this.listproprietaire();
+    this.listlocataire();
     this.listlocation();
     this.listbien();
-  }
-
-  listlocataire(){
-     return this.Jarwis.getlocataire().subscribe(
-      data => {
-        this.x=data;
-        console.log(data);
-        console.log(this.x);
-        this.user=Object.values(data);}, error => console.log(error),
-      );
   }
 
   listproprietaire(){
@@ -46,6 +36,18 @@ export class DashboardComponent implements OnInit {
       this.user=Object.values(data);}, error => console.log(error)
     );
 }
+
+
+  listlocataire(){
+     return this.Jarwis.getlocataire().subscribe(
+      data => {
+        this.x=data;
+        console.log(data);
+        console.log(this.x);
+        this.user=Object.values(data);}, error => console.log(error),
+      );
+  }
+
 
 listlocation(){
   return this.Jarwis.getlocation().subscribe(
