@@ -29,26 +29,23 @@ export class CreateProprietaireComponent implements OnInit {
     this.dataarray.push(this.document);
 
   }
-  /*onSubmit(){
-    this.Jarwis.addpropriétaire(this.user).subscribe(
-
-      data => console.log(data), error => console.log(error)
-      );
-    this.user = new User();
-   }*/
-   filedata:any;
+   /*filedata:any;
    fileEvent(e:any){
     this.filedata = e.target.files[0];
 
-   }
+   }*/
+
     onSubmitform(f: NgForm) {
+      //var myFormData = new FormData();
+      //myFormData.append('image', this.filedata);
+
       this.Jarwis.addpropriétaire(this.user).subscribe(
 
         data => console.log(data), error => console.log(error)
         );
       this.user = new User();
 
-      var myFormData = new FormData();
+     /*var myFormData = new FormData();
       const headers = new HttpHeaders();
       headers.append('Content-Type', 'multipart/form-data');
       headers.append('Accept', 'application/json');
@@ -56,7 +53,7 @@ export class CreateProprietaireComponent implements OnInit {
       this.http.post('http://localhost:8000/api/auth/uploadimage', myFormData, {
       headers: headers
       }).subscribe(data => {
-      });
+      });*/
   }
 
   opensweetalert(){

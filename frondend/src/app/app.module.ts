@@ -29,6 +29,7 @@ import { CreateChargeComponent } from './create-charge/create-charge.component';
 import { CreatePaiementComponent } from './create-paiement/create-paiement.component';
 import { BienComponent } from './bien/bien.component';
 import { CreateBienComponent } from './create-bien/create-bien.component';
+import { DetailsFactureComponent } from './details-facture/details-facture.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { CreateBienComponent } from './create-bien/create-bien.component';
     CreatePaiementComponent,
     BienComponent,
     CreateBienComponent,
+    DetailsFactureComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,78 +19,89 @@ import { CreateChargeComponent } from './create-charge/create-charge.component';
 import { CreatePaiementComponent } from './create-paiement/create-paiement.component';
 import { BienComponent } from './bien/bien.component';
 import { CreateBienComponent } from './create-bien/create-bien.component';
+import { DetailsFactureComponent } from './details-facture/details-facture.component';
+import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   { path:'' ,
   component: HomeComponent },
  // children:[
-  { path:'dashboard',
-  component: DashboardComponent },
-  { path:'societe',
-  component: SocieteComponent },
   {
-    path:'locataire',
-    component:LocataireComponent
-  },
-  {
-    path:'location',
-    component:LocationComponent
-  },
-  {
-    path:'bien',
-    component:BienComponent
-  },
-  {
-    path:'paiement',
-    component:PaiementComponent
-  },
-  {
-    path:'charges',
-    component:ChargesComponent
-  },
-  {
-    path:'quittance',
-    component:QuittanceComponent
-  },
-  {
-    path:'documents',
-    component:DocumentsComponent
-  },
-  {
-    path:'profile',
-    component:ProfileComponent
-  },
-  {
-    path:'create-loc-phy',
-    component:CreateLocPhyComponent
-  },
-  {
-    path:'create-loc-mor',
-    component:CreateLocMorComponent
-  },
-  {
-    path:'create-proprietaire',
-    component:CreateProprietaireComponent
-  },
-  {
-    path:'create-societe',
-    component:CreateSocieteComponent
-  },
-  {
-    path:'create-location',
-    component:CreateLocationComponent
-  },
-  {
-    path:'create-charge',
-    component:CreateChargeComponent
-  },
-  {
-    path:'create-paiement',
-    component:CreatePaiementComponent
-  },
-  {
-    path:'create-bien',
-    component:CreateBienComponent
-  },
+      path: '', canActivate: [AuthGuard], children: [
+        { path:'dashboard',
+        component: DashboardComponent },
+        { path:'societe',
+        component: SocieteComponent },
+        {
+          path:'locataire',
+          component:LocataireComponent
+        },
+        {
+          path:'location',
+          component:LocationComponent
+        },
+        {
+          path:'bien',
+          component:BienComponent
+        },
+        {
+          path:'paiement',
+          component:PaiementComponent
+        },
+        {
+          path:'charges',
+          component:ChargesComponent
+        },
+        {
+          path:'quittance',
+          component:QuittanceComponent
+        },
+        {
+          path:'documents',
+          component:DocumentsComponent
+        },
+        {
+          path:'profile',
+          component:ProfileComponent
+        },
+        {
+          path:'create-loc-phy',
+          component:CreateLocPhyComponent
+        },
+        {
+          path:'create-loc-mor',
+          component:CreateLocMorComponent
+        },
+        {
+          path:'create-proprietaire',
+          component:CreateProprietaireComponent
+        },
+        {
+          path:'create-societe',
+          component:CreateSocieteComponent
+        },
+        {
+          path:'create-location',
+          component:CreateLocationComponent
+        },
+        {
+          path:'create-charge',
+          component:CreateChargeComponent
+        },
+        {
+          path:'create-paiement',
+          component:CreatePaiementComponent
+        },
+        {
+          path:'create-bien',
+          component:CreateBienComponent
+        },
+        {
+          path:'details-facture',
+          component:DetailsFactureComponent
+        },
+    ]
+  }
+
  /*]
 },*/
 ];
