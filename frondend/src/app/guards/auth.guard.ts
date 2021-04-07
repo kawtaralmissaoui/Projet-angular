@@ -9,8 +9,8 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
    erreur(){
     Swal.fire({
-      title: 'Ereur',
-      text: 'Vous devez se connecter d\'abord!',
+      title: 'Accés refusé',
+      text: 'Vous n\'etes pas autorisé à accéder à cette application',
       icon: 'error',
       showCancelButton: false,
       confirmButtonText: 'OK!',
