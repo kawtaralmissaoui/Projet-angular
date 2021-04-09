@@ -29,19 +29,34 @@ export class CreateProprietaireComponent implements OnInit {
     this.dataarray.push(this.document);
 
   }
-   /*filedata:any;
+  event:any
+  Event(e:any){
+  this.event=e.target.files[0];
+  console.log(event);
+  }
+
+   filedata:any;
    fileEvent(e:any){
     this.filedata = e.target.files[0];
 
-   }*/
+   }
 
     onSubmitform(f: NgForm) {
-      //var myFormData = new FormData();
-      //myFormData.append('image', this.filedata);
+      var myFormData = new FormData();
+      myFormData.append('doc', this.event);
+      myFormData.append('image', this.filedata);
+      myFormData.append('nom',this.user.nom);
+      myFormData.append('prenom',this.user.prenom);
+      myFormData.append('CIN',this.user.CIN);
+      myFormData.append('password',this.user.password);
+      myFormData.append('email',this.user.email);
+      myFormData.append('civilite',this.user.civilite);
+      myFormData.append('telephone',this.user.telephone);
+      myFormData.append('adresse',this.user.adresse);
+      myFormData.append('nom',this.document.nom);
+      this.Jarwis.addpropriétaire(myFormData).subscribe(
 
-      this.Jarwis.addpropriétaire(this.user).subscribe(
-
-        data => console.log(data), error => console.log(error)
+        data => console.log(myFormData), error => console.log(error)
         );
       this.user = new User();
 
@@ -71,7 +86,7 @@ export class CreateProprietaireComponent implements OnInit {
     Swal.fire({
       title: 'Ereur',
       text: 'Erreur!',
-      icon: 'warning',
+      icon: 'error',
       showCancelButton: false,
       confirmButtonText: 'OK!',
       cancelButtonText: 'No, keep it'

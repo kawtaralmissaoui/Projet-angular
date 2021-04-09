@@ -1,3 +1,15 @@
+<div class="row ">
+  <div class="col-2">
+  <app-menu></app-menu>
+  </div>
+  <div class="col-10 " >
+    <div class="main-content" >
+  <app-header></app-header>
+  <div class="card w-50">
+    <div class="card-body" >
+      This is some text within a card body.
+    </div>
+  </div>
 <div id="pdf">
   <div class="container p-4 " >
     <div class="p-2" >
@@ -18,7 +30,7 @@
           <div class="col-sm">
             <div class="pull-left">
               <p>Facturé a</p>
-              <p>Almissaoui kawtar</p>
+              <p>{{ user.nom }}</p>
               <p>48 Casablanca</p>
               <p>11200</p>
             </div>
@@ -92,3 +104,7 @@
   </div>
 </div>
 <button class="icon_image "  (click)="exportAsPDF()">Downnload</button>
+<app-footer></app-footer>
+</div>
+</div>
+</div>

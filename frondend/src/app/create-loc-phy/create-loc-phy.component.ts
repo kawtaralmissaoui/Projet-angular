@@ -49,7 +49,7 @@ export class CreateLocPhyComponent implements OnInit {
     Swal.fire({
       title: 'Ereur',
       text: 'Erreur!',
-      icon: 'warning',
+      icon: 'error',
       showCancelButton: false,
       confirmButtonText: 'OK!',
       cancelButtonText: 'No, keep it'

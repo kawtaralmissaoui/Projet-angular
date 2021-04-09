@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
+import { User } from '../Model/user';
 import { fakeAsync } from '@angular/core/testing';
 @Component({
   selector: 'app-details-facture',
@@ -10,7 +11,7 @@ import { fakeAsync } from '@angular/core/testing';
 export class DetailsFactureComponent implements OnInit {
 
   constructor() { }
-
+  user = new User();
   ngOnInit(): void {
   }
   exportAsPDF()

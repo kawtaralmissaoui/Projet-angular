@@ -1,155 +1,70 @@
 <div class="row">
-  <div class="col-sm-2">
+  <div class="col-2">
   <app-menu></app-menu>
   </div>
-  <div class="col-sm-10" >
+  <div class="col-10" >
     <div class="main-content" id="panel">
   <app-header></app-header>
-<div class="header bg-primary pb-6" style="background-color: #5e72e4 !important;" >
-    <div class="container-fluid">
-      <div class="header-body">
-        <div class="row align-items-center py-4">
-          <div class="col-lg-6 col-7">
-            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" href="dashboard.html"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" href="#">Documents</a></li>
-              </ol>
-            </nav>
+  <div class="header bg-primaryy pb-6 " style="background-color: #FFF !important;" ></div>
+  <div class="container">
+    <div class="p-3 ">
+  <div class="container-fluid mt--6">
+    <div class="row justify-content-center">
+      <div class=" col ">
+        <div class="card">
+          <div class="card-header">
+            <h3>Propriétaire</h3>
+          </div>
+          <div class="card-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-6 p-4">
+                  <div class="row ">
+                      <img src="../assets/images/team-3.jpg" class="image"  style="width: 100px;height: 100px;border-radius: 50%;">
+                  </div>
+                  <hr>
+                    <h4>Civilité:</h4>
+                  <hr>
+                    <h4>Nom:</h4>
+                  <hr>
+                    <h4>Prenom:</h4>
+                </div>
+                <div class="col-6 pt-3 pb-3">
+                  <h4>CIN:</h4>
+                  <hr>
+                  <h4>Adresse:</h4>
+                  <hr>
+                  <h4>Nom:</h4>
+                  <hr>
+                  <h4>Email:</h4>
+                  <hr>
+                  <h4>Telephone:</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+              <div class="  text-left">
+                <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;" (click)="listActif()">Impimer</button>
+              </div>
+              <div class="  text-right">
+                <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;" (click)="listActif()">Télécharger </button>
+                <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;color: white" (click)="listArchiv()">Archiver</button>
+                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-secondary" style="background-color: #5e72e4;">Modifier</button>
+              </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-<br>
-<br>
-
-
-
-<div>
-  <div class="container" style="background-color: #5e72e4; color: black;">
-    <div class="p-2" >
-      <div class="pb-4">
-        <div class="pull-left">
-          <span>GESIMMO</span>
-        </div>
-        <div class="pull-right">
-          <span>Facture</span>
-        </div>
-      </div>
-    </div>
-  </div>
-<br>
-<div class="container" style="color: black;">
-<div class="p-2" >
-  <div class="pull-left">
-    <span>48 CASABLANCA </span><br>
-    <span>Maroc</span>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-    <div class="row">
-      <div class="col-sm">
-        <div class="pull-left">
-          <span>Facturé a</span><br>
-          <span>Almissaoui kawtar</span><br>
-          <span>48 Casablanca</span><br>
-          <span>11200</span><br>
-        </div>
-      </div>
-      <div class="col-sm ">
-        <div>
-          <span>Facturé a</span><br>
-          <span>Almissaoui kawtar</span><br>
-          <span>48 Casablanca</span><br>
-          <span>11200</span><br>
-        </div>
-      </div>
-      <div class="col-sm">
-        <div class="pull-right ">
-          <span>Facture N :1234 </span><br>
-          <span>Date :12/02/2000</span><br>
-          <span>Echeance :12/02/2000</span><br>
-        </div>
-      </div>
-    </div>
 </div>
 </div>
-<br>
-<br>
+</div>
+</div>
+</div>
+</div>
 
-<div class="container" >
-<div class="p-2" >
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Description</th>
-      <th scope="col">Montant</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">11/01/1021</th>
-      <td>Electricite</td>
-      <td>300</td>
-    </tr>
-    <tr>
-      <th scope="row">11/01/1021</th>
-      <td>Eau</td>
-      <td>200</td>
-    </tr>
-    <tr>
-      <th scope="row">11/01/1021</th>
-      <td>Personnel</td>
-      <td>100</td>
-    </tr>
-    <tr >
-      <td scope="row"></td>
-      <td >TOTAL HT :</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td>TVA 20% :</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td>Total</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-<br>
-<br>
-<br>
-
-
-<div class="container" >
-  <div class="p-2" >
-    <div class="pull-left">
-      <span>Condition et modalité de paiement :</span><br>
-      <span>Le paiement est du le :05/04/2021</span><br><br>
-      <span>48 Casablanca</span><br>
-      <span>11200</span><br>
-    </div>
-  </div>
-</div>
-<br>
-<br>
-</div>
-<br>
-<br>
-<br>
 <app-footer></app-footer>
 </div>
 </div>
-</div>
+
 
 
 

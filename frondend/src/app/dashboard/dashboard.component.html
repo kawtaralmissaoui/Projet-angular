@@ -5,35 +5,20 @@
   </div>
   <div class="col-sm-10" >
   <app-header></app-header>
-  <div class="header bg-primaryy pb-6 " style="background-color: #5e72e4 !important;" ><!--style="margin-left: 18%;"-->
+  <div class="header bg-primaryy pb-6 " style="background-color: #FFF !important;" ><!--style="margin-left: 18%;"-->
     <div class="container-fluid ">
       <div class="header-body  " >
-        <div class="row align-items-center py-4">
-          <div class="col-lg-6 col-7">
-            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a style="color: #5e72e4 !important;" href="#">Dashboards</a></li>
-
-              </ol>
-            </nav>
-          </div>
-
-        </div>
-        <!-- Card stats -->
-        <div class="row">
-
-          <div class="col-xl-3 col-md-6">
-            <div class="card text-black  mb-3 mb-3">
+        <div class="row pt-4">
+          <div class="col-xl-3 col-md-6 ">
+            <div class="card text-black  mb-3 bg-primary">
               <div class="card-header"><h4>Proprietaire</h4></div>
               <div class="card-body text-center">
                   <span class="h2 font-weight-bold mb-0 " >{{ y }}</span>
               </div>
             </div>
           </div>
-
           <div class="col-xl-3 col-md-6">
-            <div class="card text-black  mb-3" >
+            <div class="card text-black  mb-3 bg-warning" >
               <div class="card-header"><h4>Locataire</h4></div>
               <div class="card-body text-center">
                  <span class="h2 font-weight-bold mb-0 ">{{ x }}</span>
@@ -42,7 +27,7 @@
           </div>
 
           <div class="col-xl-3 col-md-6">
-            <div class="card text-black mb-3" >
+            <div class="card text-black mb-3 bg-info" >
               <div class="card-header"><h4>Location</h4></div>
               <div class="card-body text-center">
                 <span class="h2 font-weight-bold mb-0 ">{{ a }}</span>
@@ -51,7 +36,7 @@
           </div>
 
           <div class="col-xl-3 col-md-6">
-            <div class="card text-black mb-3" >
+            <div class="card text-black mb-3 bg-danger" >
               <div class="card-header"><h4>Bien</h4></div>
               <div class="card-body text-center">
                 <span class="h2 font-weight-bold mb-0 ">{{ z }}</span>

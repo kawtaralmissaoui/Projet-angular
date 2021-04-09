@@ -89,8 +89,8 @@
       <div class="col">
         <div class="mb-3">
           <label for="Image" class="form-label"><b>Image</b></label>
-          <input class="form-control" type="file"  id="Image" name="image" [(ngModel)]="user.image" >
-  <!--(change)="fileEvent($event)"-->
+          <input class="form-control" type="file"  id="Image" (change)="fileEvent($event)" name="image" [(ngModel)]="user.image" >
+  <!---->
         </div>
       </div>
 
@@ -107,7 +107,7 @@
     <div class="col">
       <div class="mb-3">
         <label for="doc" class="form-label"><b>Fichier joint (format accepté : PNG, JPG, JPEG, Word, PDF)</b></label>
-        <input class="form-control" type="file" id="doc" name="doc" [(ngModel)]="obj.doc">
+        <input class="form-control" type="file" (change)="Event($event)" id="doc" name="doc" [(ngModel)]="obj.doc">
       </div>
     </div>
    </div>

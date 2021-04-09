@@ -12,7 +12,7 @@ export class SocieteComponent implements OnInit {
  table:boolean=false;
   user = new User();
   users=[] as any ;
-  imagepath:any='http://127.0.0.1:8000/github/back/backend-gesimmo/public/img/';
+  imagepath:any='http://127.0.0.1:8000/storage/img/';
 
   constructor(private Jarwis:JarwisService) { }
 

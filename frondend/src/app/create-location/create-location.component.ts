@@ -58,7 +58,7 @@ export class CreateLocationComponent implements OnInit {
     Swal.fire({
       title: 'Ereur',
       text: 'Erreur!',
-      icon: 'warning',
+      icon: 'error',
       showCancelButton: false,
       confirmButtonText: 'OK!',
       cancelButtonText: 'No, keep it'
@@ -66,7 +66,7 @@ export class CreateLocationComponent implements OnInit {
    }
 
   alert(){
-     if(Object.values(this.bien).length!=0)
+     if(Object.values(this.location).length!=0)
       this.opensweetalert();
     else
      this.erreur();
