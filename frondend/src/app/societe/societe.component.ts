@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../Model/user';
+import { Router } from '@angular/router';
 import { JarwisService } from '../Services/jarwis.service';
 @Component({
   selector: 'app-societe',
@@ -14,7 +15,7 @@ export class SocieteComponent implements OnInit {
   users=[] as any ;
   imagepath:any='http://127.0.0.1:8000/storage/img/';
 
-  constructor(private Jarwis:JarwisService) { }
+  constructor(private Jarwis:JarwisService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +34,10 @@ export class SocieteComponent implements OnInit {
       data => {console.log(data);  this.users=Object.values(data);}, error => console.log(error)
       );
       this.table=true;
+  }
+  detailproprietaire(id : number){
+    this.router.navigate(['/details-proprietaire', id]);
+    console.log(id);
   }
 
 }

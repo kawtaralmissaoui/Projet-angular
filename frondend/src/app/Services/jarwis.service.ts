@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -79,6 +79,38 @@ addlocatairemor(data: any){
  getbien(){
   return  this.http.get(`${this.baseUrl}/countbien`)
  }
-
+ getuserbyid(id: number): Observable<any> {
+  return  this.http.get(`${this.baseUrl}/getUserById/`+id)
+ }
+ getchargebyid(id: number): Observable<any> {
+  return  this.http.get(`${this.baseUrl}/getchargeById/`+id)
+ }
+ archiverUser(id: number,data:any){
+  return  this.http.put(`${this.baseUrl}/archiverUser/`+id,data)
+ }
+ updateP(id: number,data:any){
+  return  this.http.put(`${this.baseUrl}/update/`+id,data)
+ }
+ getlocatairebyid(id: number): Observable<any> {
+  return  this.http.get(`${this.baseUrl}/getlocataireById/`+id)
+ }
+ getbienbyid(id: number): Observable<any> {
+  return  this.http.get(`${this.baseUrl}/getbienById/`+id)
+ }
+ getlocationbyid(id: number): Observable<any> {
+  return  this.http.get(`${this.baseUrl}/getlocationById/`+id)
+ }
+ archiverBien(id: number,data:any){
+  return  this.http.put(`${this.baseUrl}/archiverBien/`+id,data)
+ }
+ archiverLocation(id: number,data:any){
+  return  this.http.put(`${this.baseUrl}/archiverLocation/`+id,data)
+ }
+ updatelocation(id: number,data:any){
+  return  this.http.put(`${this.baseUrl}/updatelocation/`+id,data)
+ }
+ updatebien(id: number,data:any){
+  return  this.http.put(`${this.baseUrl}/updatebien/`+id,data)
+ }
 }
 

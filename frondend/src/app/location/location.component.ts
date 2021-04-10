@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Location } from '../Model/location';
 import { JarwisService } from '../Services/jarwis.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
@@ -13,7 +13,7 @@ export class LocationComponent implements OnInit {
   table:boolean=false;
   location = new Location();
   locations=[] as any ;
-  constructor(private Jarwis:JarwisService) { }
+  constructor(private Jarwis:JarwisService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -30,5 +30,11 @@ export class LocationComponent implements OnInit {
       );
       this.table=true;
   }
+  detaillocation(id : number){
+
+    this.router.navigate(['/details-location', id]);
+    console.log(id);
+
+}
 
 }

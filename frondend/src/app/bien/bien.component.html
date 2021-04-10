@@ -55,7 +55,7 @@
                         <td>{{bien.surface}}</td>
                         <td>{{bien.statut}}</td>
                         <td>{{bien.loyer_mensuel}}</td>
-                        <td><a style="background-color: #5e72e4 !important;"  class="btn btn-primary" >Détails</a>
+                        <td><a style="background-color: #5e72e4 !important;"  class="btn btn-primary" (click)="detailbien(bien.id)" >Détails</a>
                     </td>
                       </tr>
                     </tbody>

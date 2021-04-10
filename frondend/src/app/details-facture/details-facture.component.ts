@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
-import { User } from '../Model/user';
-import { fakeAsync } from '@angular/core/testing';
+import { Charge } from '../Model/charge';
+import { JarwisService } from '../Services/jarwis.service';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-details-facture',
   templateUrl: './details-facture.component.html',
@@ -10,10 +11,24 @@ import { fakeAsync } from '@angular/core/testing';
 })
 export class DetailsFactureComponent implements OnInit {
 
-  constructor() { }
-  user = new User();
+  id :any;
+  public charge: Charge = new Charge;
+  constructor(private route: ActivatedRoute,private router: Router,private Jarwis:JarwisService) { }
+
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.Jarwis.getchargebyid(this.id)
+    .subscribe(data => {
+      //console.log(this.user)
+   data[0]=this.id;
+    console.log(data[0]);
+    this.charge= data[0];
+    console.log(data)
+    this.charge=data;
+    console.log(this.charge)
+    }, error => console.log(error));
   }
+
   exportAsPDF()
   {
     var data = document.getElementById('pdf');

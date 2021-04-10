@@ -30,6 +30,14 @@ import { CreatePaiementComponent } from './create-paiement/create-paiement.compo
 import { BienComponent } from './bien/bien.component';
 import { CreateBienComponent } from './create-bien/create-bien.component';
 import { DetailsFactureComponent } from './details-facture/details-facture.component';
+import { DetailsProprietaireComponent } from './details-proprietaire/details-proprietaire.component';
+import { DetailsLocataireComponent } from './details-locataire/details-locataire.component';
+import { EditProprietaireComponent } from './edit-proprietaire/edit-proprietaire.component';
+import { DetailsBienComponent } from './details-bien/details-bien.component';
+import { DetailsLocationComponent } from './details-location/details-location.component';
+import { EditLocataireComponent } from './edit-locataire/edit-locataire.component';
+import { EditBienComponent } from './edit-bien/edit-bien.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +64,14 @@ import { DetailsFactureComponent } from './details-facture/details-facture.compo
     BienComponent,
     CreateBienComponent,
     DetailsFactureComponent,
+    DetailsProprietaireComponent,
+    DetailsLocataireComponent,
+    EditProprietaireComponent,
+    DetailsBienComponent,
+    DetailsLocationComponent,
+    EditLocataireComponent,
+    EditBienComponent,
+    EditLocationComponent,
   ],
   imports: [
     BrowserModule,

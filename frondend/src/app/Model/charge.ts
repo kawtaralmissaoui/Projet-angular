@@ -1,5 +1,6 @@
 export class Charge
 {
+  id:any;
   date_paiement:any;
   etat_paiement:any;
   type:any;

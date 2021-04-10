@@ -62,7 +62,7 @@
                           <td>{{location.date_sortie}}</td>
                           <td>{{location.montant}}</td>
                           <td>{{location.type}}</td>
-                          <td><a style="background-color: #5e72e4 !important;"  class="btn btn-primary" >Détails</a>
+                          <td><a style="background-color: #5e72e4 !important;"  class="btn btn-primary" (click)="detaillocation(location.id)">Détails</a>
                       </td>
                         </tr>
                       </tbody>

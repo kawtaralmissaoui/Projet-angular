@@ -21,6 +21,15 @@ import { BienComponent } from './bien/bien.component';
 import { CreateBienComponent } from './create-bien/create-bien.component';
 import { DetailsFactureComponent } from './details-facture/details-facture.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DetailsProprietaireComponent } from './details-proprietaire/details-proprietaire.component';
+import { DetailsLocataireComponent } from './details-locataire/details-locataire.component';
+import { EditProprietaireComponent } from './edit-proprietaire/edit-proprietaire.component';
+import { DetailsBienComponent } from './details-bien/details-bien.component';
+import { DetailsLocationComponent } from './details-location/details-location.component';
+import { EditLocataireComponent } from './edit-locataire/edit-locataire.component';
+import { EditBienComponent } from './edit-bien/edit-bien.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
+
 const routes: Routes = [
   { path:'' ,
   component: HomeComponent },
@@ -84,6 +93,10 @@ const routes: Routes = [
           component:CreateLocationComponent
         },
         {
+          path:'edit-p/:id',
+          component:EditProprietaireComponent
+        },
+        {
           path:'create-charge',
           component:CreateChargeComponent
         },
@@ -96,12 +109,39 @@ const routes: Routes = [
           component:CreateBienComponent
         },
         {
-          path:'details-facture',
+          path:'details-facture/:id',
           component:DetailsFactureComponent
+        },
+        {
+          path:'details-proprietaire/:id',
+          component:DetailsProprietaireComponent
+        },
+        {
+          path:'details-locataire/:id',
+          component:DetailsLocataireComponent
+        },
+        {
+          path:'details-bien/:id',
+          component:DetailsBienComponent
+        },
+        {
+          path:'details-location/:id',
+          component:DetailsLocationComponent
+        },
+        {
+          path:'edit-locataire/:id',
+          component:EditLocataireComponent
+        },
+        {
+          path:'edit-bien/:id',
+          component:EditBienComponent
+        },
+        {
+          path:'edit-location/:id',
+          component:EditLocationComponent
         },
     ]
   }
-
  /*]
 },*/
 ];
