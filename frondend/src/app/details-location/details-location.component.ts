@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { JarwisService } from '../Services/jarwis.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Location } from '../Model/location';
+import jspdf from 'jspdf'
+import html2canvas from 'html2canvas'
 @Component({
   selector: 'app-details-location',
   templateUrl: './details-location.component.html',
@@ -38,5 +40,20 @@ export class DetailsLocationComponent implements OnInit {
   editer(id:number){
     console.log('cliecked', id);
    this.router.navigate(['edit-location', id])
+  }
+
+  exportAsPDF()
+  {
+    var data = document.getElementById('pdf');
+    html2canvas(data as any).then(canvas => {
+      console.log(canvas);
+      const contentDataURL = canvas.toDataURL('image/png')
+      var imgHeight = canvas.height * 208 / canvas.width;
+      console.log(imgHeight);
+      let pdf = new jspdf('p', 'mm', 'a4'); //Generates PDF in landscape mode
+      // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
+      pdf.addImage(contentDataURL, 'PNG', 0, 0,208,imgHeight);
+      pdf.save('location.pdf');
+    });
   }
 }

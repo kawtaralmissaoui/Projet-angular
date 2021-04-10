@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { JarwisService } from '../Services/jarwis.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { User } from '../Model/user';
+import jspdf from 'jspdf'
+import html2canvas from 'html2canvas'
 @Component({
   selector: 'app-details-proprietaire',
   templateUrl: './details-proprietaire.component.html',
@@ -37,4 +39,23 @@ export class DetailsProprietaireComponent implements OnInit {
       console.log('cliecked', id);
      this.router.navigate(['edit-p', id])
     }
+
+    exportAsPDF()
+    {
+      var data = document.getElementById('pdf');
+      html2canvas(data as any).then(canvas => {
+        console.log(canvas);
+        const contentDataURL = canvas.toDataURL('image/png')
+        var imgHeight = canvas.height * 202 / canvas.width;
+        console.log(imgHeight);
+        let pdf = new jspdf('p', 'mm', 'a4'); //Generates PDF in landscape mode
+        // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
+        pdf.addImage(contentDataURL, 'PNG', 0, 0,202,imgHeight);
+        pdf.save('proprietaire.pdf');
+      });
+    }
+
+
 }
+
+

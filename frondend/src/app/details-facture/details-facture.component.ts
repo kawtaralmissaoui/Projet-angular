@@ -40,7 +40,7 @@ export class DetailsFactureComponent implements OnInit {
       let pdf = new jspdf('p', 'mm', 'a4'); //Generates PDF in landscape mode
       // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
       pdf.addImage(contentDataURL, 'PNG', 0, 0,208,imgHeight);
-      pdf.save('Filename.pdf');
+      pdf.save('charge.pdf');
     });
   }
 

@@ -14,4 +14,5 @@ export class User
     nom_societe:any;
     patente:any;
     statut_societe:any;
+    RC:any
 }

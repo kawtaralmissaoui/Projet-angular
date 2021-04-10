@@ -4,6 +4,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Bien } from '../Model/bien';
+import { User } from '../Model/user';
 import { JarwisService } from '../Services/jarwis.service';
 import {NgForm} from '@angular/forms';
 @Component({
@@ -14,9 +15,12 @@ import {NgForm} from '@angular/forms';
 export class EditBienComponent implements OnInit {
   public bien : Bien=new Bien;
   id: any;
+  user = new User();
+  users=[] as any ;
   constructor(private route: ActivatedRoute,private router: Router,private Jarwis: JarwisService) { }
 
   ngOnInit(): void {
+    this.listActif();
     this.id = this.route.snapshot.params['id'];
     this.Jarwis.getbienbyid(this.id)
     .subscribe(data => {
@@ -28,6 +32,7 @@ export class EditBienComponent implements OnInit {
     this.bien=data;
     console.log(this.bien)
     }, error => console.log(error));
+
   }
 
   onSubmitform(f: NgForm) {
@@ -66,5 +71,11 @@ alert(){
   else
     this.erreur();
  }
+
+ listActif(){
+  this.Jarwis.getProPhyActif().subscribe(
+    data => {console.log(data);  this.users=Object.values(data);}, error => console.log(error)
+    );
+}
 
 }

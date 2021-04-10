@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 import { Location } from '../Model/location';
 import { JarwisService } from '../Services/jarwis.service';
 import {NgForm} from '@angular/forms';
+import { Bien } from '../Model/bien';
+import { User } from '../Model/user';
 @Component({
   selector: 'app-edit-location',
   templateUrl: './edit-location.component.html',
@@ -14,9 +16,17 @@ import {NgForm} from '@angular/forms';
 export class EditLocationComponent implements OnInit {
   public location : Location=new Location;
   id: any;
+  bien = new Bien();
+  biens=[] as any ;
+  user = new User();
+  users=[] as any ;
   constructor(private route: ActivatedRoute,private router: Router,private Jarwis: JarwisService) { }
 
   ngOnInit(): void {
+    this.listLocataire();
+    this.listActif();
+
+
     this.id = this.route.snapshot.params['id'];
     this.Jarwis.getlocationbyid(this.id)
     .subscribe(data => {
@@ -36,6 +46,18 @@ export class EditLocationComponent implements OnInit {
       );
     this.location = new Location();
     this.router.navigate(['/location']);
+}
+
+listActif(){
+  this.Jarwis.getbienActif().subscribe(
+    data => {console.log(data);  this.biens=Object.values(data);}, error => console.log(error)
+    );
+
+}
+listLocataire(){
+  this.Jarwis.getLocPhyActif().subscribe(
+    data => {console.log(data);  this.users=Object.values(data);}, error => console.log(error)
+    );
 }
 
 opensweetalert(){
