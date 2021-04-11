@@ -59,9 +59,9 @@ export class DetailsLocmorComponent implements OnInit {
       }, error => console.log(error));
 
       if(this.user.type===0)
-        this.router.navigate(['edit-p', id]);
+        this.router.navigate(['edit-locataire', id]);
       else
-      this.router.navigate(['bien', id]);
+      this.router.navigate(['edit-locmor', id]);
     }
 
     exportAsPDF()

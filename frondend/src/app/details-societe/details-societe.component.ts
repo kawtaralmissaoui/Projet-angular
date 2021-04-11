@@ -61,7 +61,7 @@ export class DetailsSocieteComponent implements OnInit {
       if(this.user.type===0)
         this.router.navigate(['edit-p', id]);
       else
-      this.router.navigate(['bien', id]);
+      this.router.navigate(['edit-morale', id]);
     }
 
     exportAsPDF()

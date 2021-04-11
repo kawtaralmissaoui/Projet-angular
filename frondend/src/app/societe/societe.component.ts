@@ -38,23 +38,22 @@ export class SocieteComponent implements OnInit {
   }
   detailproprietaire(id : number){
 
-   /* this.Jarwis.getuserbyid(this.id)
+   this.Jarwis.getuserbyid(id)
     .subscribe(data => {
       //console.log(this.user)
-    data[0]=this.id;
-    console.log(data[0]);
+    data[0]=id;
+    //console.log(data[0]);
     this.user= data[0];
-    console.log(data)
+    //console.log(data)
     this.user=data;
     console.log(this.user)
+    if(this.user.type==0)
+    this.router.navigate(['/details-proprietaire', id]);
+    else
+    this.router.navigate(['/details-societe', id]);
     }, error => console.log(error));
 
-    if(this.user.type===0)
-    this.router.navigate(['/details-proprietaire', id]);
-      else
-      this.router.navigate(['/details-locataire', id]);*/
-
-    this.router.navigate(['/details-proprietaire', id]);
+    //this.router.navigate(['/details-proprietaire', id]);
     console.log(id);
   }
 

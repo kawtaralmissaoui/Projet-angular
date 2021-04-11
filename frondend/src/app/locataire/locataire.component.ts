@@ -36,8 +36,24 @@ export class LocataireComponent implements OnInit {
 
   detaillocataire(id : number){
 
-      this.router.navigate(['/details-locataire', id]);
-      console.log(id);
+    this.Jarwis.getlocatairebyid(id)
+    .subscribe(data => {
+      //console.log(this.user)
+    data[0]=id;
+    console.log(data[0]);
+    this.user= data[0];
+    console.log(data)
+    this.user=data;
+    console.log(this.user)
+    if(this.user.type===0)
+    this.router.navigate(['/details-locataire', id]);
+    else
+    this.router.navigate(['/details-locmor', id]);
+    }, error => console.log(error));
 
+
+
+      //this.router.navigate(['/details-locataire', id]);
+      //console.log(id);
   }
 }
