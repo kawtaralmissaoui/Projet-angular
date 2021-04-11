@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Bien } from '../Model/bien';
 import jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-details-bien',
   templateUrl: './details-bien.component.html',
@@ -36,6 +37,10 @@ export class DetailsBienComponent implements OnInit {
         console.log(data)
       },error => console.log(error)
       )
+        if(Object.values(this.bien).length!=0)
+        this.opensweetalert();
+        else
+        this.erreur();
   }
 
   editer(id:number){
@@ -57,4 +62,26 @@ export class DetailsBienComponent implements OnInit {
       pdf.save('bien.pdf');
     });
   }
+
+  opensweetalert(){
+    Swal.fire({
+      title: 'Succés',
+      text: 'Archiver avec succes!',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
+
+   erreur(){
+    Swal.fire({
+      title: 'Ereur',
+      text: 'Erreur!',
+      icon: 'error',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
 }

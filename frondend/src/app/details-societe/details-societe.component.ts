@@ -6,11 +6,11 @@ import jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
-  selector: 'app-details-proprietaire',
-  templateUrl: './details-proprietaire.component.html',
-  styleUrls: ['./details-proprietaire.component.css']
+  selector: 'app-details-societe',
+  templateUrl: './details-societe.component.html',
+  styleUrls: ['./details-societe.component.css']
 })
-export class DetailsProprietaireComponent implements OnInit {
+export class DetailsSocieteComponent implements OnInit {
   id :any;
   public user: User = new User;
   constructor(private route: ActivatedRoute,private router: Router,private Jarwis:JarwisService) { }
@@ -61,7 +61,7 @@ export class DetailsProprietaireComponent implements OnInit {
       if(this.user.type===0)
         this.router.navigate(['edit-p', id]);
       else
-      this.router.navigate(['edit-morale', id]);
+      this.router.navigate(['bien', id]);
     }
 
     exportAsPDF()
@@ -102,8 +102,4 @@ opensweetalert(){
  }
 
 
-
-
 }
-
-

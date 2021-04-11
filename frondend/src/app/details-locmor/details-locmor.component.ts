@@ -6,18 +6,18 @@ import jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
-  selector: 'app-details-proprietaire',
-  templateUrl: './details-proprietaire.component.html',
-  styleUrls: ['./details-proprietaire.component.css']
+  selector: 'app-details-locmor',
+  templateUrl: './details-locmor.component.html',
+  styleUrls: ['./details-locmor.component.css']
 })
-export class DetailsProprietaireComponent implements OnInit {
+export class DetailsLocmorComponent implements OnInit {
   id :any;
   public user: User = new User;
   constructor(private route: ActivatedRoute,private router: Router,private Jarwis:JarwisService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.Jarwis.getuserbyid(this.id)
+    this.Jarwis.getlocatairebyid(this.id)
     .subscribe(data => {
       //console.log(this.user)
    data[0]=this.id;
@@ -47,7 +47,7 @@ export class DetailsProprietaireComponent implements OnInit {
     editer(id:number){
       console.log('cliecked', id);
 
-      this.Jarwis.getuserbyid(this.id)
+      this.Jarwis.getlocatairebyid(this.id)
       .subscribe(data => {
         //console.log(this.user)
       data[0]=this.id;
@@ -61,7 +61,7 @@ export class DetailsProprietaireComponent implements OnInit {
       if(this.user.type===0)
         this.router.navigate(['edit-p', id]);
       else
-      this.router.navigate(['edit-morale', id]);
+      this.router.navigate(['bien', id]);
     }
 
     exportAsPDF()
@@ -102,8 +102,4 @@ opensweetalert(){
  }
 
 
-
-
 }
-
-

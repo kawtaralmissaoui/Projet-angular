@@ -38,6 +38,10 @@ import { DetailsLocationComponent } from './details-location/details-location.co
 import { EditLocataireComponent } from './edit-locataire/edit-locataire.component';
 import { EditBienComponent } from './edit-bien/edit-bien.component';
 import { EditLocationComponent } from './edit-location/edit-location.component';
+import { EditMoraleComponent } from './edit-morale/edit-morale.component';
+import { EditLocmorComponent } from './edit-locmor/edit-locmor.component';
+import { DetailsSocieteComponent } from './details-societe/details-societe.component';
+import { DetailsLocmorComponent } from './details-locmor/details-locmor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +76,10 @@ import { EditLocationComponent } from './edit-location/edit-location.component';
     EditLocataireComponent,
     EditBienComponent,
     EditLocationComponent,
+    EditMoraleComponent,
+    EditLocmorComponent,
+    DetailsSocieteComponent,
+    DetailsLocmorComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas'
 import { Charge } from '../Model/charge';
 import { JarwisService } from '../Services/jarwis.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-details-facture',
   templateUrl: './details-facture.component.html',
@@ -43,6 +44,27 @@ export class DetailsFactureComponent implements OnInit {
       pdf.save('charge.pdf');
     });
   }
+  opensweetalert(){
+    Swal.fire({
+      title: 'Succés',
+      text: 'Archiver avec succes!',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
+
+   erreur(){
+    Swal.fire({
+      title: 'Ereur',
+      text: 'Erreur!',
+      icon: 'error',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
 
 
 

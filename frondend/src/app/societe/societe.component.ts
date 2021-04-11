@@ -13,6 +13,7 @@ export class SocieteComponent implements OnInit {
  table:boolean=false;
   user = new User();
   users=[] as any ;
+  id:any;
   imagepath:any='http://127.0.0.1:8000/storage/img/';
 
   constructor(private Jarwis:JarwisService,private router:Router) { }
@@ -36,6 +37,23 @@ export class SocieteComponent implements OnInit {
       this.table=true;
   }
   detailproprietaire(id : number){
+
+   /* this.Jarwis.getuserbyid(this.id)
+    .subscribe(data => {
+      //console.log(this.user)
+    data[0]=this.id;
+    console.log(data[0]);
+    this.user= data[0];
+    console.log(data)
+    this.user=data;
+    console.log(this.user)
+    }, error => console.log(error));
+
+    if(this.user.type===0)
+    this.router.navigate(['/details-proprietaire', id]);
+      else
+      this.router.navigate(['/details-locataire', id]);*/
+
     this.router.navigate(['/details-proprietaire', id]);
     console.log(id);
   }

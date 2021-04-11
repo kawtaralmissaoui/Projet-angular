@@ -29,6 +29,10 @@ import { DetailsLocationComponent } from './details-location/details-location.co
 import { EditLocataireComponent } from './edit-locataire/edit-locataire.component';
 import { EditBienComponent } from './edit-bien/edit-bien.component';
 import { EditLocationComponent } from './edit-location/edit-location.component';
+import { EditMoraleComponent } from './edit-morale/edit-morale.component';
+import { EditLocmorComponent } from './edit-locmor/edit-locmor.component';
+import { DetailsLocmorComponent } from './details-locmor/details-locmor.component';
+import { DetailsSocieteComponent } from './details-societe/details-societe.component';
 
 const routes: Routes = [
   { path:'' ,
@@ -139,6 +143,26 @@ const routes: Routes = [
         {
           path:'edit-location/:id',
           component:EditLocationComponent
+        },
+        {
+          path:'edit-morale/:id',
+          component:EditMoraleComponent
+        },
+        {
+          path:'edit-locmor/:id',
+          component:EditLocmorComponent
+        },
+        {
+          path:'edit-locmor/:id',
+          component:EditLocmorComponent
+        },
+        {
+          path:'details-locmor/:id',
+          component:DetailsLocmorComponent
+        },
+        {
+          path:'details-societe/:id',
+          component:DetailsSocieteComponent
         },
     ]
   }

@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { User } from '../Model/user';
 import jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-details-locataire',
   templateUrl: './details-locataire.component.html',
@@ -34,11 +35,33 @@ export class DetailsLocataireComponent implements OnInit {
         console.log(data)
       },error => console.log(error)
       )
+
+      if(Object.values(this.user).length!=0)
+        this.opensweetalert();
+        else
+        this.erreur();
   }
 
   editer(id:number){
     console.log('cliecked', id);
-   this.router.navigate(['edit-locataire', id])
+
+
+    this.Jarwis.getlocatairebyid(this.id)
+      .subscribe(data => {
+        //console.log(this.user)
+      data[0]=this.id;
+      console.log(data[0]);
+      this.user= data[0];
+      console.log(data)
+      this.user=data;
+      console.log(this.user)
+      }, error => console.log(error));
+
+      if(this.user.type===0)
+      this.router.navigate(['edit-locataire', id])
+      else
+      this.router.navigate(['edit-locmor', id]);
+
   }
 
 
@@ -56,4 +79,26 @@ export class DetailsLocataireComponent implements OnInit {
       pdf.save('locataire.pdf');
     });
   }
+
+  opensweetalert(){
+    Swal.fire({
+      title: 'Succés',
+      text: 'Archiver avec succes!',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
+
+   erreur(){
+    Swal.fire({
+      title: 'Ereur',
+      text: 'Erreur!',
+      icon: 'error',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
 }

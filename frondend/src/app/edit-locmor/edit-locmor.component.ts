@@ -7,20 +7,20 @@ import { User } from '../Model/user';
 import { JarwisService } from '../Services/jarwis.service';
 import {NgForm} from '@angular/forms';
 @Component({
-  selector: 'app-edit-proprietaire',
-  templateUrl: './edit-proprietaire.component.html',
-  styleUrls: ['./edit-proprietaire.component.css']
+  selector: 'app-edit-locmor',
+  templateUrl: './edit-locmor.component.html',
+  styleUrls: ['./edit-locmor.component.css']
 })
-export class EditProprietaireComponent implements OnInit {
+export class EditLocmorComponent implements OnInit {
   public user : User=new User;
   id: any;
   constructor(private route: ActivatedRoute,private router: Router,private Jarwis: JarwisService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.Jarwis.getuserbyid(this.id)
+    this.Jarwis.getlocatairebyid(this.id)
     .subscribe(data => {
-      //console.log(this.user)
+      console.log(this.user)
    data[0]=this.id;
     console.log(data[0]);
     this.user= data[0];
@@ -31,12 +31,12 @@ export class EditProprietaireComponent implements OnInit {
   }
 
   onSubmitform(f: NgForm) {
-    this.Jarwis.updateP(this.id, this.user).subscribe(
+    this.Jarwis.updatemorale(this.id, this.user).subscribe(
       data => console.log(data),
       error => console.log(error)
       );
     this.user = new User();
-    this.router.navigate(['/societe']);
+    this.router.navigate(['/locataire']);
 }
 
 opensweetalert(){

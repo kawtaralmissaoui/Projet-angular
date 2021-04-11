@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Location } from '../Model/location';
 import jspdf from 'jspdf'
 import html2canvas from 'html2canvas'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-details-location',
   templateUrl: './details-location.component.html',
@@ -35,6 +36,10 @@ export class DetailsLocationComponent implements OnInit {
         console.log(data)
       },error => console.log(error)
       )
+       if(Object.values(this.location).length!=0)
+        this.opensweetalert();
+        else
+        this.erreur();
   }
 
   editer(id:number){
@@ -56,4 +61,26 @@ export class DetailsLocationComponent implements OnInit {
       pdf.save('location.pdf');
     });
   }
+
+  opensweetalert(){
+    Swal.fire({
+      title: 'Succés',
+      text: 'Archiver avec succes!',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
+
+   erreur(){
+    Swal.fire({
+      title: 'Ereur',
+      text: 'Erreur!',
+      icon: 'error',
+      showCancelButton: false,
+      confirmButtonText: 'OK!',
+      cancelButtonText: 'No, keep it'
+    })
+   }
 }

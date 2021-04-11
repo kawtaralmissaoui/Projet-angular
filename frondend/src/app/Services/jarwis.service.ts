@@ -112,5 +112,8 @@ addlocatairemor(data: any){
  updatebien(id: number,data:any){
   return  this.http.put(`${this.baseUrl}/updatebien/`+id,data)
  }
+ updatemorale(id: number,data:any){
+  return  this.http.put(`${this.baseUrl}/updateMorale/`+id,data)
+ }
 }
 
