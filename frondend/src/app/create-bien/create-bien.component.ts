@@ -21,25 +21,21 @@ export class CreateBienComponent implements OnInit {
   dropdownList:any = [];
   selectedItems:any = [];
   dropdownSettings:any = {};
-  obj:any;
+  //obj:any;
   ngOnInit(): void {
     this.listActif();
 
     this.dropdownList = [
-      { item_id: 1, item_text: 'Mumbai' },
-      { item_id: 2, item_text: 'Bangaluru' },
-      { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' },
-      { item_id: 5, item_text: 'New Delhi' }
+      { key: 1, value: 'Mumbai' },
+      {  key: 2, value: 'Bangaluru' },
+      {  key: 3, value: 'Pune' },
+      {  key: 4, value: 'Navsari' },
+      {  key: 5, value: 'New Delhi' }
     ];
-    /*this.selectedItems = [
-      { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' }
-    ];*/
     this.dropdownSettings= {
       singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
+      idField: 'key',
+      textField: 'value',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
@@ -61,16 +57,9 @@ export class CreateBienComponent implements OnInit {
     myFormData.append('etage',this.bien.etage);
     myFormData.append('porte',this.bien.porte);
     myFormData.append('type',this.bien.type);
-   /* this.selectedItems.forEach((key : any,value:any)=>{
-      value=key['item_text'];
-      console.log(value);
-
-      myFormData.append('equipement',value);
-    });*/
-    //var tab=this.selectedItems.map(obj   =>obj.value);
-    //console.log(tab)
-
-
+    var equipements=this.selectedItems.map((obj: { value: any; })=>obj.value).join(' , ');
+    console.log(equipements);
+    myFormData.append('equipement',equipements);
     this.Jarwis.addbien(myFormData).subscribe(
       data => console.log(myFormData), error => console.log(error));
     this.bien = new Bien();
