@@ -25,8 +25,25 @@ export class CreateLocPhyComponent implements OnInit {
 
   }
 
+  filedata:any;
+   fileEvent(e:any){
+    this.filedata = e.target.files[0];
+
+   }
   onSubmit(){
-    this.Jarwis.addlocataire(this.user).subscribe(
+    var myFormData = new FormData();
+    //myFormData.append('doc', this.event);
+    myFormData.append('image', this.filedata);
+    myFormData.append('nom',this.user.nom);
+    myFormData.append('prenom',this.user.prenom);
+    myFormData.append('CIN',this.user.CIN);
+    myFormData.append('password',this.user.password);
+    myFormData.append('email',this.user.email);
+    myFormData.append('civilite',this.user.civilite);
+    myFormData.append('telephone',this.user.telephone);
+    myFormData.append('adresse',this.user.adresse);
+    myFormData.append('nom',this.document.nom);
+    this.Jarwis.addlocataire(myFormData).subscribe(
 
       data => console.log(data), error => console.log(error)
       );

@@ -17,6 +17,9 @@ export class EditBienComponent implements OnInit {
   id: any;
   user = new User();
   users=[] as any ;
+  dropdownList:any = [];
+  selectedItems:any = [];
+  dropdownSettings:any = {};
   constructor(private route: ActivatedRoute,private router: Router,private Jarwis: JarwisService) { }
 
   ngOnInit(): void {
@@ -33,9 +36,31 @@ export class EditBienComponent implements OnInit {
     console.log(this.bien)
     }, error => console.log(error));
 
-  }
 
-  onSubmitform(f: NgForm) {
+    this.dropdownList = [
+      { item_id: 1, item_text: 'Mumbai' },
+      { item_id: 2, item_text: 'Bangaluru' },
+      { item_id: 3, item_text: 'Pune' },
+      { item_id: 4, item_text: 'Navsari' },
+      { item_id: 5, item_text: 'New Delhi' }
+    ];
+
+    /*this.selectedItems = [
+      { item_id: 3, item_text: 'Pune' },
+      { item_id: 4, item_text: 'Navsari' }
+    ];*/
+    this.dropdownSettings= {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
+  }
+  onSubmit() {
     this.Jarwis.updatebien(this.id, this.bien).subscribe(
       data => console.log(data), error => console.log(error)
       );
@@ -65,17 +90,28 @@ opensweetalert(){
   })
  }
 
-alert(){
-   if(Object.values(this.bien).length!=0)
-    this.opensweetalert();
-  else
-    this.erreur();
- }
 
  listActif(){
   this.Jarwis.getProPhyActif().subscribe(
     data => {console.log(data);  this.users=Object.values(data);}, error => console.log(error)
     );
+}
+
+onClick(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
+
+  if(Object.values(this.bien).length!=0)
+    this.opensweetalert();
+  else
+    this.erreur();
+}
+
+onItemSelect(item: any) {
+  console.log(item);
+}
+onSelectAll(items: any) {
+  console.log(items);
 }
 
 }

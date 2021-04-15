@@ -41,6 +41,9 @@ export class DetailsSocieteComponent implements OnInit {
         else
         this.erreur();
 
+        var element = document.getElementById("CloseButton") as any;
+        element.click();
+
 
 
     }
@@ -100,6 +103,11 @@ opensweetalert(){
     cancelButtonText: 'No, keep it'
   })
  }
+
+ close(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
+}
 
 
 }

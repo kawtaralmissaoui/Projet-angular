@@ -68,4 +68,19 @@ alert(){
     this.erreur();
  }
 
+ onClick(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
+
+  if(Object.values(this.user).length!=0)
+    this.opensweetalert();
+  else
+    this.erreur();
+}
+
+close(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
+}
+
 }

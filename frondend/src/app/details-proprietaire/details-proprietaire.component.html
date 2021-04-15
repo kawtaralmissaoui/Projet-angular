@@ -20,7 +20,7 @@
               <div class="row">
                 <div class="col-6 p-4">
                   <div class="row ">
-                      <img src="../assets/images/team-3.jpg" class="image"  style="width: 100px;height: 100px;border-radius: 50%;">
+                      <img src="{{ user.image }}" class="image"  style="width: 100px;height: 100px;border-radius: 50%;">
                   </div>
                   <hr>
                     <h4>Civilite :{{ user.civilite }}</h4>
@@ -50,8 +50,9 @@
                 <button type="button" class="btn btn-secondary " style="background-color: #5e72e4;">Impimer</button>
               </div>
               <div class="  text-right">
+                <button type="button" class="btn btn-secondary" routerLink="/societe" style="background-color: #5e72e4;">Retour </button>
                 <button type="button" class="btn btn-secondary" (click)="exportAsPDF()" style="background-color: #5e72e4;">Télécharger </button>
-                <button type="button" class="btn btn-secondary" (click)="archiver(user.id)" style="background-color: #5e72e4;">Archiver</button>
+                <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-secondary"  style="background-color: #5e72e4;">Archiver</button>
                 <button type="button" class="btn btn-secondary" (click)="editer(user.id)" style="background-color: #5e72e4;">Editer</button>
               </div>
           </div>
@@ -66,6 +67,27 @@
 <app-footer></app-footer>
 </div>
 </div>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class=" text-center">
+      <div  class="container-fluid" >
+        <br>
+        <i class="fa fa-exclamation-triangle text-warning" style="font-size:100px !important;"></i>
+        <button hidden id="CloseButton" type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+      </div><br>
+    </div>
+    <h5 class=" text-center" >Etes vous sur de vouloir Archiver</h5>
+    <div class=" text-center">
+      <button type="submit" class="btn btn-primary"  (click)="archiver(user.id)" style=" margin: 20px 20px;"><a style="color: black" >Confirmer</a></button>
+      <button type="button" class="btn btn-secondary" (click)="close()" style=" margin: 20px 20px;"><a style="color: black" >Annuler</a></button>
+    </div>
+  </div>
+</div>
+</div>
+
 
 
 

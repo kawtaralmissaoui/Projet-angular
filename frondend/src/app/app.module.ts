@@ -42,6 +42,9 @@ import { EditMoraleComponent } from './edit-morale/edit-morale.component';
 import { EditLocmorComponent } from './edit-locmor/edit-locmor.component';
 import { DetailsSocieteComponent } from './details-societe/details-societe.component';
 import { DetailsLocmorComponent } from './details-locmor/details-locmor.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +88,8 @@ import { DetailsLocmorComponent } from './details-locmor/details-locmor.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [JarwisService,
               AuthService

@@ -48,7 +48,7 @@
               </div>
               <div class="  text-right">
                 <button type="button" class="btn btn-secondary" style="background-color: #5e72e4;" (click)="exportAsPDF()">Télécharger </button>
-                <button type="button" class="btn btn-secondary" style="background-color: #5e72e4;" (click)="archiver(location.id)">Archiver</button>
+                <button type="button" class="btn btn-secondary" style="background-color: #5e72e4;" data-toggle="modal" data-target="#myModal">Archiver</button>
                 <button type="button" class="btn btn-secondary" style="background-color: #5e72e4;" (click)="editer(location.id)">Modifier</button>
               </div>
           </div>
@@ -65,7 +65,24 @@
 </div>
 
 
-
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class=" text-center">
+      <div  class="container-fluid" >
+        <br>
+        <i class="fa fa-exclamation-triangle text-warning" style="font-size:100px !important;"></i>
+        <button hidden id="CloseButton" type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+      </div><br>
+    </div>
+    <h5 class=" text-center" >Etes vous sur de vouloir Archiver</h5>
+    <div class=" text-center">
+      <button type="submit" class="btn btn-primary"  (click)="archiver(location.id)" style=" margin: 20px 20px;"><a style="color: black" >Confirmer</a></button>
+      <button type="button" class="btn btn-secondary" (click)="close()" style=" margin: 20px 20px;"><a style="color: black" >Annuler</a></button>
+    </div>
+  </div>
+</div>
+</div>
 
 
 

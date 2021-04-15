@@ -24,6 +24,7 @@
     "html2canvas": "^1.0.0-rc.7",
     "jquery": "^3.6.0",
     "jspdf": "^2.3.1",
+    "ng-multiselect-dropdown": "^0.3.4",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.15.7",
     "tslib": "^2.0.0",

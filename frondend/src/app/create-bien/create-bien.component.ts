@@ -5,6 +5,8 @@ import { JarwisService } from '../Services/jarwis.service';
 import { TokenService } from '../Services/token.service';
 import Swal from 'sweetalert2' ;
 import { User } from '../Model/user';
+import { analyzeAndValidateNgModules, ConditionalExpr, createOfflineCompileUrlResolver } from '@angular/compiler';
+import { stringify } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-create-bien',
   templateUrl: './create-bien.component.html',
@@ -16,15 +18,61 @@ export class CreateBienComponent implements OnInit {
   bien=new Bien;
   user = new User();
   users=[] as any ;
+  dropdownList:any = [];
+  selectedItems:any = [];
+  dropdownSettings:any = {};
+  obj:any;
   ngOnInit(): void {
     this.listActif();
+
+    this.dropdownList = [
+      { item_id: 1, item_text: 'Mumbai' },
+      { item_id: 2, item_text: 'Bangaluru' },
+      { item_id: 3, item_text: 'Pune' },
+      { item_id: 4, item_text: 'Navsari' },
+      { item_id: 5, item_text: 'New Delhi' }
+    ];
+    /*this.selectedItems = [
+      { item_id: 3, item_text: 'Pune' },
+      { item_id: 4, item_text: 'Navsari' }
+    ];*/
+    this.dropdownSettings= {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
   onSubmit(){
-    this.Jarwis.addbien(this.bien).subscribe(
-      data => console.log(data), error => console.log(error)
+    var myFormData = new FormData();
+    myFormData.append('adresse',this.bien.adresse);
+    myFormData.append('user_id',this.bien.user_id);
+    myFormData.append('identifiant',this.bien.identifiant);
+    myFormData.append('code_postal',this.bien.code_postal);
+    myFormData.append('surface',this.bien.surface);
+    myFormData.append('loyer_mensuel',this.bien.loyer_mensuel);
+    myFormData.append('syndic',this.bien.syndic);
+    myFormData.append('taxe_habitation',this.bien.taxe_habitation);
+    myFormData.append('nbr_piece',this.bien.nbr_piece);
+    myFormData.append('etage',this.bien.etage);
+    myFormData.append('porte',this.bien.porte);
+    myFormData.append('type',this.bien.type);
+   /* this.selectedItems.forEach((key : any,value:any)=>{
+      value=key['item_text'];
+      console.log(value);
 
-      );
+      myFormData.append('equipement',value);
+    });*/
+    //var tab=this.selectedItems.map(obj   =>obj.value);
+    //console.log(tab)
+
+
+    this.Jarwis.addbien(myFormData).subscribe(
+      data => console.log(myFormData), error => console.log(error));
     this.bien = new Bien();
    }
    opensweetalert(){
@@ -62,5 +110,12 @@ export class CreateBienComponent implements OnInit {
       );
   }
 
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
 
 }

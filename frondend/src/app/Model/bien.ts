@@ -14,7 +14,6 @@ export class Bien
   archive:any;
   nbr_piece:any;
   equipement:any;
-  ascenseur:any;
   etage:any;
   user_id:any;
 }

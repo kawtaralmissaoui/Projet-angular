@@ -41,8 +41,8 @@ export class DetailsProprietaireComponent implements OnInit {
         else
         this.erreur();
 
-
-
+        var element = document.getElementById("CloseButton") as any;
+        element.click();
     }
     editer(id:number){
       console.log('cliecked', id);
@@ -101,7 +101,10 @@ opensweetalert(){
   })
  }
 
-
+ close(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
+}
 
 
 }

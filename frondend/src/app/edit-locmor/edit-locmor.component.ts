@@ -60,12 +60,19 @@ opensweetalert(){
     cancelButtonText: 'No, keep it'
   })
  }
+ onClick(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
 
-alert(){
-   if(Object.values(this.user).length!=0)
+  if(Object.values(this.user).length!=0)
     this.opensweetalert();
   else
     this.erreur();
- }
+}
+
+close(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
+}
 
 }

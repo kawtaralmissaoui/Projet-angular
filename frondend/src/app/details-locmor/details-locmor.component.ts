@@ -41,7 +41,8 @@ export class DetailsLocmorComponent implements OnInit {
         else
         this.erreur();
 
-
+        var element = document.getElementById("CloseButton") as any;
+        element.click();
 
     }
     editer(id:number){
@@ -101,5 +102,8 @@ opensweetalert(){
   })
  }
 
-
+ close(){
+  var element = document.getElementById("CloseButton") as any;
+  element.click();
+}
 }

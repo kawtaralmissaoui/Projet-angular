@@ -18,11 +18,17 @@ export class BienComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
   listActif(){
     this.Jarwis.getbienActif().subscribe(
-      data => {console.log(data);  this.biens=Object.values(data);}, error => console.log(error)
+      data => {console.log(data);
+         this.biens=Object.values(data);
+
+        }
+         , error => console.log(error)
       );
+
       this.table=true;
   }
   listArchiv(){

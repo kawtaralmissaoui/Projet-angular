@@ -22,10 +22,11 @@ export class DetailsBienComponent implements OnInit {
     .subscribe(data => {
       //console.log(this.user)
    data[0]=this.id;
-    console.log(data[0]);
+    //console.log(data[0]);
     this.bien= data[0];
-    console.log(data)
+    //console.log(data)
     this.bien=data;
+    //console.log(this.bien)
     console.log(this.bien)
     }, error => console.log(error));
   }

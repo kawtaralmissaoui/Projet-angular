@@ -40,6 +40,9 @@ export class DetailsLocataireComponent implements OnInit {
         this.opensweetalert();
         else
         this.erreur();
+
+        var element = document.getElementById("CloseButton") as any;
+        element.click();
   }
 
   editer(id:number){
@@ -101,4 +104,9 @@ export class DetailsLocataireComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     })
    }
+
+   close(){
+    var element = document.getElementById("CloseButton") as any;
+    element.click();
+  }
 }

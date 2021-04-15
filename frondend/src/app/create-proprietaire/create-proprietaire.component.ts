@@ -54,21 +54,13 @@ export class CreateProprietaireComponent implements OnInit {
       myFormData.append('telephone',this.user.telephone);
       myFormData.append('adresse',this.user.adresse);
       myFormData.append('nom',this.document.nom);
+      //myFormData.append('documents',JSON.stringify(this.dataarray));
       this.Jarwis.addpropriétaire(myFormData).subscribe(
 
         data => console.log(myFormData), error => console.log(error)
         );
       this.user = new User();
 
-     /*var myFormData = new FormData();
-      const headers = new HttpHeaders();
-      headers.append('Content-Type', 'multipart/form-data');
-      headers.append('Accept', 'application/json');
-      myFormData.append('image', this.filedata);
-      this.http.post('http://localhost:8000/api/auth/uploadimage', myFormData, {
-      headers: headers
-      }).subscribe(data => {
-      });*/
   }
 
   opensweetalert(){
