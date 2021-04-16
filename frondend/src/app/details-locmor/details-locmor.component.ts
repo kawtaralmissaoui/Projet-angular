@@ -84,7 +84,7 @@ export class DetailsLocmorComponent implements OnInit {
       doc.setFontSize(11);
     doc.text('Nom du société ', 11, 40);
     doc.text(this.user.nom_societe, 60, 40);
-    doc.text('Numéro du CIN ', 11, 50)
+
     doc.text(this.user.CIN, 60, 50);
     doc.text('Nom ', 11, 60);
     doc.text(this.user.nom, 60, 60);
