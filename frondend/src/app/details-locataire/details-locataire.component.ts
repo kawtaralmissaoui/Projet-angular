@@ -67,21 +67,6 @@ export class DetailsLocataireComponent implements OnInit {
 
   }
 
-
- /* exportAsPDF()
-  {
-    var data = document.getElementById('pdf');
-    html2canvas(data as any).then(canvas => {
-      console.log(canvas);
-      const contentDataURL = canvas.toDataURL('image/png')
-      var imgHeight = canvas.height * 208 / canvas.width;
-      console.log(imgHeight);
-      let pdf = new jspdf('p', 'mm', 'a4'); //Generates PDF in landscape mode
-      // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
-      pdf.addImage(contentDataURL, 'PNG', 0, 0,208,imgHeight);
-      pdf.save('locataire.pdf');
-    });
-  }*/
   createPdf() {
 
     this.Jarwis.getlocatairebyid(this.id)
@@ -117,7 +102,6 @@ export class DetailsLocataireComponent implements OnInit {
     doc.addImage(img,'png',10,50);*/
     //doc.roundedRect();
     doc.setTextColor(100);
-    doc.html("<p>salam khedmi 3afak</p>");
      // below line for Open PDF document in new tab
      doc.output('dataurlnewwindow')
 

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { JarwisService } from '../Services/jarwis.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { User } from '../Model/user';
-import jspdf from 'jspdf'
-import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-details-proprietaire',
@@ -64,7 +64,7 @@ export class DetailsProprietaireComponent implements OnInit {
       this.router.navigate(['edit-morale', id]);
     }
 
-    exportAsPDF()
+    /*exportAsPDF()
     {
       var data = document.getElementById('pdf');
       html2canvas(data as any).then(canvas => {
@@ -77,6 +77,48 @@ export class DetailsProprietaireComponent implements OnInit {
         pdf.addImage(contentDataURL, 'PNG', 0, 0,202,imgHeight);
         pdf.save('proprietaire.pdf');
       });
+    }*/
+    createPdf() {
+
+      this.Jarwis.getlocatairebyid(this.id)
+      .subscribe(data => {
+      data[0]=this.id;
+      console.log(data[0]);
+      this.user= data[0];
+      console.log(data)
+      this.user=data;
+      console.log(this.user)
+      }, error => console.log(error));
+      var doc = new jsPDF();
+      doc.setFontSize(18);
+      
+      doc.text('Fiche détaillée du locataire', 70, 10);
+      doc.setFontSize(11);
+      doc.text('Civilité ', 25, 30);
+      doc.text(': '+this.user.civilite, 55, 30);
+      doc.text('Numéro du CIN ', 25, 40)
+      doc.text(': '+this.user.CIN, 55, 40);
+      doc.text('Nom ', 25, 50);
+      doc.text(': '+this.user.nom, 55, 50);
+      doc.text('Prénom ', 120, 30);
+      doc.text(': '+this.user.prenom, 140, 30);
+      doc.text('Téléphone ', 120, 40);
+      doc.text(': '+this.user.telephone, 140, 40);
+      doc.text('Email ', 120, 50);
+      doc.text(': '+this.user.email, 140, 50);
+      doc.text('Adresse ', 120, 60);
+      doc.text(': '+this.user.adresse, 140, 60);
+     /* var img=new Image();
+      img.src='../assets/images/loc.png';
+      doc.addImage(img,'png',10,50);*/
+      //doc.roundedRect();
+      doc.setTextColor(100);
+       // below line for Open PDF document in new tab
+       doc.output('dataurlnewwindow')
+  
+       // below line for Download PDF document  
+       doc.save('propriétaire.pdf');
+  
     }
 
 opensweetalert(){

@@ -24,11 +24,15 @@ export class CreateLocPhyComponent implements OnInit {
     this.dataarray.push(this.document);
 
   }
-
+  docdata:any;
   filedata:any;
    fileEvent(e:any){
     this.filedata = e.target.files[0];
-
+    console.log(this.filedata);
+   }
+   docEvent(e:any){
+    this.docdata = e.target.files[0];
+    console.log('document: '+this.docdata);
    }
   onSubmit(){
     var myFormData = new FormData();
@@ -42,7 +46,9 @@ export class CreateLocPhyComponent implements OnInit {
     myFormData.append('civilite',this.user.civilite);
     myFormData.append('telephone',this.user.telephone);
     myFormData.append('adresse',this.user.adresse);
-    myFormData.append('nom',this.document.nom);
+    myFormData.append('nomdoc',this.document.nomdoc);
+    myFormData.append('doc',this.docdata);
+    console.log(this.dataarray);
     this.Jarwis.addlocataire(myFormData).subscribe(
 
       data => console.log(data), error => console.log(error)

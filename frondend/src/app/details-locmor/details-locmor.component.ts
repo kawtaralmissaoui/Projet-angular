@@ -83,25 +83,25 @@ export class DetailsLocmorComponent implements OnInit {
       doc.text('Fiche détaillée du société', 70, 20);
       doc.setFontSize(11);
     doc.text('Nom du société ', 11, 40);
-    doc.text(this.user.nom_societe, 60, 40);
-
-    doc.text(this.user.CIN, 60, 50);
+    doc.text(': '+this.user.nom_societe, 60, 40);
+    doc.text('Numéro du CIN ',11, 50);
+    doc.text(': '+this.user.CIN, 60, 50);
     doc.text('Nom ', 11, 60);
-    doc.text(this.user.nom, 60, 60);
+    doc.text(': '+this.user.nom, 60, 60);
     doc.text('Prénom ', 11, 70);
-    doc.text(this.user.prenom, 60, 70);
+    doc.text(': '+this.user.prenom, 60, 70);
     doc.text('Téléphone ', 11, 80);
-    doc.text(this.user.telephone, 60, 80);
+    doc.text(': '+this.user.telephone, 60, 80);
     doc.text('Email ', 11, 90);
-    doc.text(this.user.email, 60, 90);
+    doc.text(': '+this.user.email, 60, 90);
     doc.text('Adresse ', 11, 100);
-    doc.text(this.user.adresse, 60, 100);
+    doc.text(': '+this.user.adresse, 60, 100);
     doc.text('Statut ', 11, 110);
-    doc.text(this.user.statut_societe, 60, 110);
+    doc.text(': '+this.user.statut_societe, 60, 110);
     doc.text('Patente ', 11, 120);
-    doc.text(this.user.patente, 60, 120);
+    doc.text(': '+this.user.patente, 60, 120);
     doc.text('Registre de commerce ', 11, 130);
-    doc.text(this.user.RC, 60, 130);
+    doc.text(': '+this.user.RC, 60, 130);
       
       doc.setTextColor(100);
   

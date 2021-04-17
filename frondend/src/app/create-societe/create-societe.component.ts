@@ -39,7 +39,8 @@ export class CreateSocieteComponent implements OnInit {
       myFormData.append('telephone',this.user.telephone);
       myFormData.append('RC',this.user.RC);
       myFormData.append('statut_societe',this.user.statut_societe);
-      myFormData.append('nom',this.document.nom);
+      myFormData.append('document',this.dataarray);
+    console.log(this.dataarray);
     this.Jarwis.addsociete(myFormData).subscribe(
 
       data => console.log(data), error => console.log(error)

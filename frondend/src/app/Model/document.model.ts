@@ -1,5 +1,5 @@
 export class document {
-    nom:any;
+    nomdoc:any;
     doc:any;
     id:any;
 }

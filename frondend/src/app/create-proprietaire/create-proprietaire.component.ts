@@ -53,7 +53,8 @@ export class CreateProprietaireComponent implements OnInit {
       myFormData.append('civilite',this.user.civilite);
       myFormData.append('telephone',this.user.telephone);
       myFormData.append('adresse',this.user.adresse);
-      myFormData.append('nom',this.document.nom);
+      myFormData.append('document',this.dataarray);
+    console.log(this.dataarray);
       //myFormData.append('documents',JSON.stringify(this.dataarray));
       this.Jarwis.addpropriétaire(myFormData).subscribe(
 

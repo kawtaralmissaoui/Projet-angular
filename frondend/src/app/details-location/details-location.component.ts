@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JarwisService } from '../Services/jarwis.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Location } from '../Model/location';
-import jspdf from 'jspdf'
+import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
@@ -49,19 +49,45 @@ export class DetailsLocationComponent implements OnInit {
    this.router.navigate(['edit-location', id])
   }
 
-  exportAsPDF()
-  {
-    var data = document.getElementById('pdf');
-    html2canvas(data as any).then(canvas => {
-      console.log(canvas);
-      const contentDataURL = canvas.toDataURL('image/png')
-      var imgHeight = canvas.height * 208 / canvas.width;
-      console.log(imgHeight);
-      let pdf = new jspdf('p', 'mm', 'a4'); //Generates PDF in landscape mode
-      // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
-      pdf.addImage(contentDataURL, 'PNG', 0, 0,208,imgHeight);
-      pdf.save('location.pdf');
-    });
+  createPdf() {
+
+    this.Jarwis.getlocationbyid(this.id)
+    .subscribe(data => {
+    data[0]=this.id;
+    console.log(data[0]);
+    this.location= data[0];
+    console.log(data)
+    this.location=data;
+    console.log(this.location)
+    }, error => console.log(error));
+    var doc = new jsPDF();
+    doc.setFontSize(18);
+    
+    doc.text('Fiche détaillée du location', 70, 10);
+    doc.setFontSize(11);
+    doc.text('Date d\'entrée ', 25, 30);
+    doc.text(': '+this.location.date_entree, 55, 30);
+    doc.text('Date de sortie ', 25, 40);
+    doc.text(': '+this.location.date_sortie, 55, 40);
+    doc.text('L\'identifiant ', 25, 50);
+    doc.text(': '+this.location.identifiant, 55, 50);
+    doc.text('Type de location ', 120, 30);
+    doc.text(': '+this.location.type, 160, 30);
+    doc.text('La durée ', 120, 40);
+    doc.text(': '+this.location.duree, 160, 40);
+    doc.text('Montant ', 120, 50);
+    doc.text(': '+this.location.montant, 160, 50);
+   /* var img=new Image();
+    img.src='../assets/images/loc.png';
+    doc.addImage(img,'png',10,50);*/
+    //doc.roundedRect();
+    doc.setTextColor(100);
+     // below line for Open PDF document in new tab
+     doc.output('dataurlnewwindow')
+
+     // below line for Download PDF document  
+     doc.save('locataire.pdf');
+
   }
 
   opensweetalert(){
